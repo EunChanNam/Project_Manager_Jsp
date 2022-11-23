@@ -15,7 +15,7 @@ spring:
   messages:
     basename: application, errors
 
-  //jsp 설정
+  #jsp 설정
   mvc:
     view:
       prefix: /WEB/INF/
