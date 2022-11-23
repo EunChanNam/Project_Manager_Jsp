@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>InQ Project Manager</title>
   <!-- favicon 선언 -->
-  <link rel="icon" href="/images/inq_logo.png">
+  <link rel="icon" href="../images/inq_logo.png">
   <!-- 브라우저 기본 CSS 초기화 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- CSS 파일 연결 -->
-  <link rel="stylesheet" href="../../../../../Projects/inq_pj_manager/InQ_PJ_Manager_Web/css/common.css">
+  <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
   

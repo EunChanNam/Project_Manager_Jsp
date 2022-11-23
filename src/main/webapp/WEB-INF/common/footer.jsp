@@ -1,4 +1,4 @@
-<script src="../../../../../Projects/inq_pj_manager/InQ_PJ_Manager_Web/js/footer.js"></script>
+<script src="../js/footer.js"></script>
 <footer>
   <div class="inner">
 
