@@ -15,6 +15,12 @@ spring:
   messages:
     basename: application, errors
 
+  //jsp 설정
+  mvc:
+    view:
+      prefix: /WEB/INF/
+      suffix: .jsp
+
 logging:
   level:
     org.hibernate.SQL: debug
