@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <script src="../../../../../Projects/inq_pj_manager/InQ_PJ_Manager_Web/js/footer.js"></script>
 <footer>
   <div class="inner">
