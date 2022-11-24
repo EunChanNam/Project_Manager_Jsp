@@ -8,11 +8,11 @@ import team.projectmanager.web.login.interceptor.LoginInterceptor;
 @Component
 public class WebConfig implements WebMvcConfigurer {
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginInterceptor())
-                .order(1)
-                .addPathPatterns("/projects/**");
-        //todo path 추가하기
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(new LoginInterceptor())
+//                .order(1)
+//                .addPathPatterns("/projects/**");
+//        //todo path 추가하기
+//    }
 }

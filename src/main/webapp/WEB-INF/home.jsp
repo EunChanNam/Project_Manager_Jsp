@@ -114,7 +114,7 @@
     <div class="inner">
 
         <div class="text-title">
-            <a th:href="@{/projects}"><span onClick="location.href='../project/project_info.html'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">프로젝트</span></a>
+            <a th:href="@{/projects}"><span onClick="location.href='project/project_info.jsp'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">프로젝트</span></a>
         </div>
         <div class="swiper">
             <div class="card-list swiper-wrapper">
