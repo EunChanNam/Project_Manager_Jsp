@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InQ Project Manager</title>
     <!-- favicon 선언 -->
-    <link rel="icon" href="../images/inq_logo.png">
+    <link rel="icon" href="images/inq_logo.png">
     <!-- 브라우저 기본 CSS 초기화 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- jquery -->
@@ -23,17 +23,17 @@
     <!-- Material icons -->
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp|Material+Symbols+Outlined" rel="stylesheet">
     <!-- CSS 파일 연결 -->
-    <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
     <!-- JS 파일 -->
-    <script defer src="../js/home.js"></script>
+    <script defer src="js/home.js"></script>
     <!-- 공통 header 연결 -->
     <script type="text/javascript">
         $(document).ready( function() {
-            $("#headers").load("../common/header.jsp");  // 원하는 파일 경로를 삽입
+            $("#headers").load("common/header.jsp");  // 원하는 파일 경로를 삽입
         });
         $(document).ready( function() {
-            $("#footers").load("../common/footer.jsp");  // 원하는 파일 경로를 삽입
+            $("#footers").load("common/footer.jsp");  // 원하는 파일 경로를 삽입
         });
     </script>
 </head>
@@ -114,7 +114,7 @@
             <div class="card-list swiper-wrapper">
 
                 <a href="#" onclick="location.href='./project/project_info.html'" class="card swiper-slide">
-                    <img class="card-img-top" src="./images/inq_logo.png" alt="Card image cap" />
+                    <img class="card-img-top" src="images/inq_logo.png" alt="Card image cap" />
                     <div class="card-body">
                         <div class="card-text card-title">[인큐] 프로젝트 관리 매니저</div>
                         <div class="card-text">

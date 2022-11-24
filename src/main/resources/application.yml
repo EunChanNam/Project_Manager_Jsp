@@ -18,7 +18,7 @@ spring:
   #jsp 설정
   mvc:
     view:
-      prefix: /WEB/INF/
+      prefix: /WEB-INF/
       suffix: .jsp
 
 logging:
