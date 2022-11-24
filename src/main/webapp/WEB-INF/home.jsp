@@ -20,20 +20,20 @@
     <!-- Swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <!-- Material icons -->
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp|Material+Symbols+Outlined" rel="stylesheet">
     <!-- CSS 파일 연결 -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/home.css">
     <!-- JS 파일 -->
     <script defer src="js/home.js"></script>
+    <!-- Material icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp|Material+Symbols+Outlined">
     <!-- 공통 header 연결 -->
     <script type="text/javascript">
         $(document).ready( function() {
-            $("#headers").load("common/header.jsp");  // 원하는 파일 경로를 삽입
+            $("#headers").load("common/header.html");  // 원하는 파일 경로를 삽입
         });
         $(document).ready( function() {
-            $("#footers").load("common/footer.jsp");  // 원하는 파일 경로를 삽입
+            $("#footers").load("common/footer.html");  // 원하는 파일 경로를 삽입
         });
     </script>
 </head>
@@ -50,56 +50,62 @@
         </div>
         <div class="text-body">
             <div class="row">
-                <div class="member-detail">
+                <div class="member-detail detail-second">
                     <div class="detail-title">깃허브</div>
                     <button class="bton btn--blue-reverse " type="button">
                         <a class="detail-content a-font" href="https://github.com/InQ-InQ-InQ-InQ-InQ/InQ_PJ_Manager_Web">인큐 깃허브</a>
                     </button>
                 </div>
-                <div class="member-detail detail-second">
+                <div class="member-detail">
                     <div class="detail-title">한 줄 소개</div>
-                    <span class="detail-content">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오</span>
+                    <span <%--th:text="${member.intro}"--%> class="detail-content">일이삼사오육칠팔구십일이삼사오육칠팔구십일이삼사오</span>
                 </div>
             </div>
             <div class="row">
                 <div class="member-skill">
-                    <div class="skill-title">보유 기술</div>
-                    <span class="skill-content">HTML</span>
-                    <span class="skill-content">CSS</span>
-                    <span class="skill-content">JS</span>
+                    <div class="skill-title">보유 스킬</div>
+<%--                    <th:block th:each="skill : ${member.skills}">--%>
+                        <span class="skill-content" <%--th:text="${skill.name()}"--%>>HTML</span>
+<%--                    </th:block>--%>
                 </div>
             </div>
             <div class="row">
                 <div class="member-project">
                     <div class="project-title">참여한 프로젝트</div>
-                    <a href="javascript:void(0)" onclick="location.href='./project/project_info.html'">
+                    <a href="javascript:void(0)">
                         <div class="project-content">
-                            <span class="project-progress recruit">모집중</span>
-                            <span class="project-name">~ 나의 바나나 나무 ~ 느린 편지</span>
+                            <span class="project-progress">진행중</span>
+<%--                            <span class="project-name" th:if="${ingMP != null}" th:text="${ingMP.project.name}">진행중인 프로젝트가 없습니다.</span>--%>
+<%--                            <span class="project-name" th:if="${ingMP == null}">진행중인 프로젝트가 없습니다.</span>--%>
                         </div>
                     </a>
-                    <a href="javascript:void(0)" onclick="location.href='./project/project_info.html'">
+                    <a href="javascript:void(0)">
                         <div class="project-content">
-                            <span class="project-progress execution">진행중</span>
-                            <span class="project-name">[인큐] 프로젝트 관리 매니저</span>
+                            <span class="project-progress">완료</span>
+<%--                            <span class="project-name" th:if="${finMP != null}" th:text="${finMP?.project?.name}">완료한 프로젝트가 없습니다.</span>--%>
+<%--                            <span class="project-name" th:if="${finMP == null}">완료한 프로젝트가 없습니다.</span>--%>
                         </div>
                     </a>
-                    <a href="javascript:void(0)" onclick="location.href='./project/project_info.html'">
+                    <a href="javascript:void(0)">
                         <div class="project-content">
-                            <span class="project-progress complete">완료</span>
-                            <span class="project-name">"오늘의 약", 약 알리미</span>
+                            <span class="project-progress">모집중</span>
+<%--                            <span class="project-name" th:if="${collectMP != null}" th:text="${collectMP?.project?.name}">모집중인 프로젝트가 없습니다.</span>--%>
+<%--                            <span class="project-name" th:if="${collectMP == null}">모집중인 프로젝트가 없습니다.</span>--%>
                         </div>
+                    </a>
+                    <a href="javascript:void(0)">
+                        <div class="project-addinfo">더보기</div>
                     </a>
                 </div>
             </div>
         </div>
 
     </div>
-    <%--    <div class="custom-shape-divider-bottom-1652199240">--%>
-    <%--        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">--%>
-    <%--            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>--%>
-    <%--        </svg>--%>
-    <%--    </div>--%>
+    <div class="custom-shape-divider-bottom-1652199240">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
+        </svg>
+    </div>
 
 </section>
 
@@ -108,35 +114,51 @@
     <div class="inner">
 
         <div class="text-title">
-            <a href="#" onClick="location.href='../project/project_home.jsp'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">프로젝트</a>
+            <a th:href="@{/projects}"><span onClick="location.href='../project/project_info.html'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">프로젝트</span></a>
         </div>
         <div class="swiper">
             <div class="card-list swiper-wrapper">
 
-                <a href="#" onclick="location.href='./project/project_info.html'" class="card swiper-slide">
+                <div class="card swiper-slide" <%--th:each="project : ${projects}"--%>>
                     <img class="card-img-top" src="images/inq_logo.png" alt="Card image cap" />
                     <div class="card-body">
-                        <div class="card-text card-title">[인큐] 프로젝트 관리 매니저</div>
+                        <a <%--th:href="@{/projects/{projectId}(projectId = ${project.id})}"--%>><div class="card-text card-title" <%--th:text="${project.name}"--%>>[인큐] 프로젝트 관리 매니저</div></a>
                         <div class="card-text">
                             <div class="card-info">
                                 <div class="info-left">
                                     <div class="info-date">
                                         모집기간
-                                        <span class="recruit-date">22.05.10 - 22.05.20</span>
+                                        <span class="recruit-date" <%--th:text="'~ ' + ${project.period}"--%>>22.05.10 - 22.05.20</span>
                                     </div>
                                 </div>
                                 <div class="info-right">
                                     <div class="info-member">
                                         <span class="symbol material-icons">person</span>
-                                        <span class="member-personnel">
+                                        <span class="member-personnel" <%--th:text="${project.memberProjects.size()}"--%>>
                         2
                         /
                         5
                       </span>
                                     </div>
-                                    <div class="info-progress recruit">모집중</div>
+                                    <div <%--th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).ING}"--%> class="info-progress execution">진행중</div>
+                                    <div <%--th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).COLLECT}"--%> class="info-progress recruit">모집중</div>
+                                    <div <%--th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).FIN}"--%> class="info-progress complete">완료</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
+                <div class="swiper-prev">
+                    <div class="material-icons">arrow_back</div>
+                </div>
+                <div class="swiper-next">
+                    <div class="material-icons">arrow_forward</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<div id="footers"></div>
+</body>
+</html>
