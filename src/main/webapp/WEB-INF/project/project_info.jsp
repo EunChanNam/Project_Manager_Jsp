@@ -1,5 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,15 +22,15 @@
   <!-- Material icons -->
   <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp|Material+Symbols+Outlined" rel="stylesheet">
   <!-- CSS 파일 연결 -->
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="../css/project_info.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/project_info.css">
   <!-- 공통 header 연결 -->
   <script type="text/javascript">
     $(document).ready( function() {
-      $("#headers").load("../common/header.html");  // 원하는 파일 경로를 삽입
+      $("#headers").load("/common/header.html");  // 원하는 파일 경로를 삽입
     });
     $(document).ready( function() {
-      $("#footers").load("../common/footer.html");  // 원하는 파일 경로를 삽입
+      $("#footers").load("/common/footer.html");  // 원하는 파일 경로를 삽입
     });
   </script>
 </head>
@@ -38,7 +39,7 @@
   <div id="headers"></div>
 
   <!-- Project Information -->
-  <section class="project-info" th:object="${project}">
+  <section class="project-info" <%--th:object="${project}"--%>>
     <div class="inner">
 
       <div class="text-title">
@@ -54,10 +55,10 @@
               <span class="icon material-symbols-outlined">group_add</span>
               <span class="text">모집중인 역할</span>
             </div>
-            <div class="content" th:each="position : *{positions}">
+            <div class="content" <%--th:each="position : *{positions}"--%>>
               <div class="role-body">
                 <span class="icon material-symbols-outlined">account_circle_full</span>
-                <span th:text="${position.name()}" class="role">frontend</span>
+                <span <%--th:text="${position.name()}"--%> class="role">frontend</span>
               </div>
             </div>
           </div>
@@ -67,27 +68,27 @@
               <span class="icon material-symbols-outlined">group</span>
               <span class="text">참여중인 멤버</span>
             </div>
-            <div class="content" th:each="memberProject : *{memberProjects}">
+            <div class="content" <%--th:each="memberProject : *{memberProjects}"--%>>
               <div class="role-body">
                 <span class="icon material-symbols-outlined">account_circle_full</span>
-                <span th:text="${memberProject.member.name}" class="role">김인큐</span>
-                <span th:text="${memberProject.member.position}" class="role">포지션</span>
+                <span <%--th:text="${memberProject.member.name}"--%> class="role">김인큐</span>
+                <span <%--th:text="${memberProject.member.position}"--%> class="role">포지션</span>
               </div>
             </div>
           </div>
         
           <!-- <button class="bton btn--reverse row box">참여하기</button> -->
-          <form th:action="@{/memberproject/join}" method="post">
-            <input type="hidden" th:value="${projectId}" th:name="projectId">
-            <input th:if="${!isJoin}" type="submit" value="참여하기" class="bton btn--reverse row box">
+          <form <%--th:action="@{/memberproject/join}"--%> method="post">
+            <input type="hidden" <%--th:value="${projectId}" th:name="projectId"--%>>
+            <input <%--th:if="${!isJoin}"--%> type="submit" value="참여하기" class="bton btn--reverse row box">
           </form>
             <!-- Button trigger modal -->
-          <button th:if="${isAdmin}" type="button" class="btn btn-primary bton btn--blue-reverse row box" data-toggle="modal" data-target="#exampleModalCenter">
+          <button <%--th:if="${isAdmin}"--%> type="button" class="btn btn-primary bton btn--blue-reverse row box" data-toggle="modal" data-target="#exampleModalCenter">
             프로젝트 상태변경
           </button>
 
           <!-- Modal -->
-          <form th:action="@{/projects/edit/status}" method="post">
+          <form <%--th:action="@{/projects/edit/status}"--%> method="post">
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -99,10 +100,10 @@
                   </div>
                   <div class="modal-body">
   
-                    <div class="radio-box" th:each="status : ${statusList}">
-                      <label th:for="${#ids.next('projectStatus')}" th:text="${status}" for="recruitment">모집중</label>
-                      <input th:value="${status}" th:name="projectStatus" th:id="projectStatus" type="radio" id="recruitment" name="state" value="recruitment">
-                      <input type="hidden" th:value="${projectId}" th:name="projectId">
+                    <div class="radio-box" <%--th:each="status : ${statusList}"--%>>
+                      <label <%--th:for="${#ids.next('projectStatus')}" th:text="${status}"--%> for="recruitment">모집중</label>
+                      <input <%--th:value="${status}" th:name="projectStatus" th:id="projectStatus"--%> type="radio" id="recruitment" name="state" value="recruitment">
+                      <input type="hidden" <%--th:value="${projectId}" th:name="projectId"--%>>
                     </div>
   
                   </div>
@@ -117,7 +118,7 @@
 
         </div>
         <!-- Body Right -->
-        <div class="body-right box" th:object="${project}">
+        <div class="body-right box" <%--th:object="${project}"--%>>
           <div class="sub-title">
             <span class="icon material-symbols-outlined">description</span>
             <div class="title">프로젝트 설명</div>
@@ -125,22 +126,22 @@
           <div class="sub-body">
             <div class="font-style">
               <span class="state-text">프로젝트 생성자</span>
-              <span th:text="${admin.name}" class="project-constructor">김인큐</span>
+              <span <%--th:text="${admin.name}"--%> class="project-constructor">김인큐</span>
             </div>
             <div class="font-style">
               <span class="state-text">프로젝트 상태</span>
-              <span th:text="*{status.name()}" class="project-state">모집중</span>
+              <span <%--th:text="*{status.name()}"--%> class="project-state">모집중</span>
             </div>
             <div class="font-style">
               <span class="state-text">모집마감 기간</span>
-              <span th:text="'~' + *{period}" class="recurit-term">~ 2022.05.30</span>
+              <span <%--th:text="'~' + *{period}"--%> class="recurit-term">~ 2022.05.30</span>
             </div>
             <div class="font-style">
               <span class="state-text">프로젝트 기간</span>
-              <span th:text="|*{startDate} ~ *{endDate}|" class="project-term">2022.06.01 ~ 2022.06.30</span>
+              <span <%--th:text="|*{startDate} ~ *{endDate}|"--%> class="project-term">2022.06.01 ~ 2022.06.30</span>
             </div>
             <hr style="margin: 60px 0;">
-            <div th:text="*{introduction}" class="project-content">
+            <div <%--th:text="*{introduction}"--%> class="project-content">
               상세 설명
             </div>
           </div>
