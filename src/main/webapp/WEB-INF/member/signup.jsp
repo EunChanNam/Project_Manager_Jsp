@@ -1,5 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,46 +50,46 @@
       <div class="text-title">
         <span class="title">회원 가입</span>
       </div>
-      <form th:action method="post" class="form-example" th:object="${memberForm}">
+      <form <%--th:action method="post"--%> class="form-example" <%--th:object="${memberForm}"--%>>
         <div class="text-body">
           <div class="row">
             <label for="memberName" class="sub-title">이름*</label>
-            <input th:field="*{name}" type="text" id="memberName" name="memberName" required >
+            <input <%--th:field="*{name}"--%> type="text" id="memberName" name="memberName" required >
           </div>
           <div class="row">
             <label for="signupId" class="sub-title">아이디*</label>
-            <input th:field="*{loginId}" type="text" id="signupId" name="signupId" required
+            <input <%--th:field="*{loginId}"--%> type="text" id="signupId" name="signupId" required
                   minlength="4" maxlength="15">
-            <div th:class="field-error" th:errors="*{loginId}"></div>
+<%--            <div th:class="field-error" th:errors="*{loginId}"></div>--%>
           </div>
           <div class="row">
             <label for="signupPw" class="sub-title">비밀번호*</label>
-            <input th:field="*{pw}" type="password" id="signupPw" name="signupPw" minlength="8" required >
+            <input <%--th:field="*{pw}"--%> type="password" id="signupPw" name="signupPw" minlength="8" required >
           </div>
           <div class="row">
             <label for="signupPwCheck" class="sub-title">비밀번호 확인*</label>
-            <input th:field="*{checkPw}" type="password" id="signupPwCheck" name="signupPwCheck" minlength="8" required >
+            <input <%--th:field="*{checkPw}"--%> type="password" id="signupPwCheck" name="signupPwCheck" minlength="8" required >
 <!--            비밀번호 확인 오류 메세지-->
-            <div th:class="field-error" th:errors="*{checkPw}"></div>
+<%--            <div th:class="field-error" th:errors="*{checkPw}"></div>--%>
           </div>
           <div class="row">
             <label for="signupEmail" class="sub-title">이메일*</label>
-            <input th:field="*{email}" type="email" id="signupEmail" name="signupEmail" required >
+            <input <%--th:field="*{email}"--%> type="email" id="signupEmail" name="signupEmail" required >
           </div>
           <div class="row">
             <label for="memberPosition" class="sub-title">포지션*</label>
-            <select th:field="*{position}" name="memberPosition" id="memberPosition" required >
+            <select <%--th:field="*{position}"--%> name="memberPosition" id="memberPosition" required >
               <option value="">--- Postion ---</option>
-              <th:blcok th:each="position : ${positionList}">
-                <option th:value="${position.name()}" th:text="${position.name()}">Full Stack</option>
-              </th:blcok>
+<%--              <th:blcok th:each="position : ${positionList}">--%>
+                <option <%--th:value="${position.name()}" th:text="${position.name()}"--%>>Full Stack</option>
+<%--              </th:blcok>--%>
             </select>
           </div>
           <div class="row">
             <label for="memberSkill" class="sub-title">보유기술*</label>
             <div class="modal-btn">
               <!-- Button trigger modal -->
-              <button type="button" class="btn btn-primary bton btn--blue-reverse" data-toggle="modal" data-target="#exampleModalCenter">
+              <button id="memberSkill" type="button" class="btn btn-primary bton btn--blue-reverse" data-toggle="modal" data-target="#exampleModalCenter">
                 선택하기
               </button>
               </div>
@@ -104,10 +105,10 @@
                     </button>
 
                   </div>
-                  <div th:each="skill : ${skillList}" class="modal-body">
+                  <div <%--th:each="skill : ${skillList}"--%> class="modal-body">
                     <div class="check-box">
-                      <label th:for="${#ids.next('skills')}" th:text="${skill.name()}" for="HTML">HTML</label>
-                      <input type="checkbox" th:field="*{skills}" th:value="${skill.name()}" id="HTML" name="HTML">
+                      <label <%--th:for="${#ids.next('skills')}" th:text="${skill.name()}"--%> for="HTML">HTML</label>
+                      <input type="checkbox" <%--th:field="*{skills}" th:value="${skill.name()}"--%> id="HTML" name="HTML">
                     </div>
                   </div>
 
@@ -121,11 +122,11 @@
           </div>
           <div class="row">
             <label for="memberGithub" class="sub-title">깃허브</label>
-            <input th:field="*{gitAddress}" type="text" id="memberGithub" name="memberGithub">
+            <input <%--th:field="*{gitAddress}"--%> type="text" id="memberGithub" name="memberGithub">
           </div>
           <div class="row">
             <label for="memberInfo" class="sub-title">한 줄 자기소개</label>
-            <input th:field="*{intro}" type="text" id="memberInfo" name="memberInfo" maxlength="25">
+            <input <%--th:field="*{intro}"--%> type="text" id="memberInfo" name="memberInfo" maxlength="25">
           </div>
 
           <div class="btn-row">
