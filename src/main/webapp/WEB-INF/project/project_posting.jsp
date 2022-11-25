@@ -1,5 +1,6 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,7 +35,27 @@
 </head>
 <body>
 <!-- Header -->
-<div id="headers"></div>
+<div>
+  <body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-inner">
+
+      <div onClick="location.href='/'" class="logo">
+        <img src="/images/inq_logo.png" alt="InQ" />
+      </div>
+
+      <div class="menu">
+        <a href="javascript:void(0)" class="bton login_name">반갑습니다</a>
+      </div>
+
+    </div>
+  </header>
+
+  </body>
+
+</div>
 
 <!-- Project Posting -->
 <section class="project">
@@ -43,31 +64,31 @@
     <div class="text-title">
       <span class="title">프로젝트 포스팅</span>
     </div>
-    <form th:action method="post" th:object="${projectForm}" class="form-example">
+    <form <%--th:action method="post" th:object="${projectForm}"--%> class="form-example">
       <div class="text-body">
         <div class="row">
           <label for="projectName" class="sub-title">프로젝트 이름*</label>
-          <input th:field="*{name}" type="text" id="projectName" name="projectName" required >
+          <input <%--th:field="*{name}"--%> type="text" id="projectName" name="projectName" required >
         </div>
         <div class="row">
-          <label for="recruitDate" class="sub-title">모집완료 기간*</label>
+          <label for="recruitDateStart" class="sub-title">모집완료 기간*</label>
           <div class="date-bundle">
-            <input th:field="*{period}" type="date" class="date-one" id="recruitDateStart" name="recruitDateStart" required >
+            <input <%--th:field="*{period}"--%> type="date" class="date-one" id="recruitDateStart" name="recruitDateStart" required >
           </div>
         </div>
         <div class="row">
-          <label for="projectDate" class="sub-title">프로젝트 기간*</label>
+          <label for="projectDateStart" class="sub-title">프로젝트 기간*</label>
           <div class="date-bundle">
-            <input th:field="*{startDate}" type="date" class="date-one" id="projectDateStart" name="projectDateStart" required >
+            <input <%--th:field="*{startDate}"--%> type="date" class="date-one" id="projectDateStart" name="projectDateStart" required >
             <span> ~ </span>
-            <input th:field="*{endDate}" type="date" class="date-one"id="projectDateEnd" name="projectDateEnd" required >
+            <input <%--th:field="*{endDate}"--%> type="date" class="date-one" id="projectDateEnd" name="projectDateEnd" required >
           </div>
         </div>
         <div class="row">
           <label for="recruitSkill" class="sub-title">모집할 역할*</label>
           <div class="modal-btn">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary bton btn--blue-reverse" data-toggle="modal" data-target="#exampleModalCenter">
+            <button id="recruitSkill" type="button" class="btn btn-primary bton btn--blue-reverse" data-toggle="modal" data-target="#exampleModalCenter">
               선택하기
             </button>
           </div>
@@ -84,9 +105,9 @@
                 </div>
                 <div class="modal-body">
 
-                  <div class="check-box" th:each="position : ${positionList}">
-                    <label th:for="${#ids.next('positions')}" th:text="${position.name()}" for="Full Stack">Full Stack</label>
-                    <input th:field="*{positions}" th:value="${position.name()}" type="checkbox" id="Full Stack" name="Full Stack">
+                  <div class="check-box" <%--th:each="position : ${positionList}"--%>>
+                    <label <%--th:for="${#ids.next('positions')}" th:text="${position.name()}"--%> for="Full Stack">Full Stack</label>
+                    <input <%--th:field="*{positions}" th:value="${position.name()}"--%> type="checkbox" id="Full Stack" name="Full Stack">
                   </div>
 
                 </div>
@@ -99,7 +120,7 @@
         </div>
         <div class="row">
           <label for="projectInfo" class="sub-title">프로젝트 소개</label>
-          <textarea th:field="*{introduction}" id="projectInfo" name="projectInfo" rows="9" cols="33" required></textarea>
+          <textarea <%--th:field="*{introduction}"--%> id="projectInfo" name="projectInfo" rows="9" cols="33" required></textarea>
         </div>
 
         <div class="btn-row">
@@ -111,6 +132,25 @@
   </div>
 </section>
 <!-- Footer -->
-<div id="footers"></div>
+<div>
+  <script src="/js/footer.js"></script>
+  <footer>
+    <div class="inner">
+
+      <div class="info">
+        <a href="https://github.com/InQ-InQ-InQ-InQ-InQ" class="github-logo">
+          <img src="/images/github.png" alt="inq_logo" />
+        </a>
+        <span>Email : inqiniqinqinqin@gamil.com</span>
+        <span>Kyounggi Univ.</span>
+      </div>
+
+      <div class="copyright">
+        &copy; <span class="this-year"></span> InQ Project Manager
+      </div>
+
+    </div>
+  </footer>
+</div>
 </body>
 </html>
