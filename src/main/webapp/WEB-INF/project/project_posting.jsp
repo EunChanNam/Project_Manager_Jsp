@@ -35,28 +35,7 @@
 </head>
 <body>
 <!-- Header -->
-<div>
-  <body>
-
-  <!-- Header -->
-  <header>
-    <div class="header-inner">
-
-      <div onClick="location.href='/'" class="logo">
-        <img src="/images/inq_logo.png" alt="InQ" />
-      </div>
-
-      <div class="menu">
-        <a href="javascript:void(0)" class="bton login_name">반갑습니다</a>
-      </div>
-
-    </div>
-  </header>
-
-  </body>
-
-</div>
-
+<div id="headers"></div>
 <!-- Project Posting -->
 <section class="project">
   <div class="inner">
@@ -132,25 +111,6 @@
   </div>
 </section>
 <!-- Footer -->
-<div>
-  <script src="/js/footer.js"></script>
-  <footer>
-    <div class="inner">
-
-      <div class="info">
-        <a href="https://github.com/InQ-InQ-InQ-InQ-InQ" class="github-logo">
-          <img src="/images/github.png" alt="inq_logo" />
-        </a>
-        <span>Email : inqiniqinqinqin@gamil.com</span>
-        <span>Kyounggi Univ.</span>
-      </div>
-
-      <div class="copyright">
-        &copy; <span class="this-year"></span> InQ Project Manager
-      </div>
-
-    </div>
-  </footer>
-</div>
+<div id="footers"></div>
 </body>
 </html>
