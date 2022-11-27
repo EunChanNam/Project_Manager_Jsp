@@ -136,7 +136,7 @@
     <div class="inner">
 
         <div class="text-title">
-            <a href="/projects"><span onClick="location.href='project/project_info.jsp'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">모집중인 프로젝트</span></a>
+            <a href="/projects"><span onClick="location.href='project/project_info.jsp'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">프로젝트</span></a>
         </div>
         <div class="swiper">
             <div class="swiper-prev">
