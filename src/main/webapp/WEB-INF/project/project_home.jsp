@@ -39,35 +39,35 @@
     <div id="headers"></div>
   </header>
   <section class="search-bar">
-    <form <%--th:action--%> method="get" <%--th:object="${search}"--%>>
+    <form <%--th:action--%> action="/projects" method="get" <%--th:object="${search}"--%>>
       <div class="search-radio">
         <div class="inner">
 
           <div class="radio-box">
-            <input <%--th:value="COLLECT" th:name="status"--%> type="radio" id="recruitment" name="state" value="recruitment">
+            <input <%--th:value="COLLECT" th:name="status"--%> type="radio" id="recruitment" name="state" value="COLLECT">
             <label for="recruitment" class="bton underline">모집중</label>
           </div>
 
           <div class="radio-box">
-            <input <%--th:value="ING" th:name="status"--%> type="radio" id="progress" name="state" value="progress">
+            <input <%--th:value="ING" th:name="status"--%> type="radio" id="progress" name="state" value="ING">
             <label for="progress" class="bton underline">진행중</label>
           </div>
 
           <div class="radio-box">
-            <input <%--th:value="FIN" th:name="status"--%> type="radio" id="complete" name="state" value="complete">
+            <input <%--th:value="FIN" th:name="status"--%> type="radio" id="complete" name="state" value="FIN">
             <label for="complete" class="bton underline">완료</label>
           </div>
 
           <div class="search">
             <span class="icon material-symbols-outlined">search</span>
-            <input <%--th:field="*{name}"--%> placeholder="프로젝트명으로 검색" type="text" name="search-text" id="search-text">
+            <input <%--th:field="*{name}"--%> placeholder="프로젝트명으로 검색" type="text" name="name" id="search-text">
             <input type="submit" class="bton btn--reverse" value="검색">
           </div>
 
         </div>
       </div>
     </form>
-    <a <%--th:href="@{/projects/new}"--%> href="#" class="bton btn--reverse posting" onclick="location.href='project_posting.jsp'">프로젝트 등록</a>
+    <a <%--th:href="@{/projects/new}"--%> href="#" class="bton btn--reverse posting" onclick="location.href='/project/new'">프로젝트 등록</a>
   </section>
   <!-- Project Bundle-->
   <section class="project-bundle">

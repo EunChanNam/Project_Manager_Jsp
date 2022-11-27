@@ -30,7 +30,7 @@ public class HomeController {
                        Model model) {
 
         if (memberId == null) {
-            return "redirect:/login/loginForm";
+            return "redirect:/login";
         }
 
         Member member = memberService.findById(memberId);

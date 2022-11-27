@@ -21,23 +21,23 @@ VALUES (10,104, DATE('2022-11-16'), 'PROJECT_1', 'PROJECT_1', DATE('2022-11-11')
 
 
 INSERT INTO MEMBER(MEMBER_ID, EMAIL, GIT_ADDRESS, INTRO, LOGIN_ID, MEMBER_NAME, POSITION, PW)
-VALUES (100, 'namhm23@naver.com', 'hello.git', '안녕하세요~~', 'member1', 'member1', 'Backend', '1234');
+VALUES (100, 'namhm23@naver.com', 'hello.git', '안녕하세요~~', 'member1', 'member1', 'Backend', '12341234');
 INSERT INTO MEMBER(MEMBER_ID, EMAIL, GIT_ADDRESS, INTRO, LOGIN_ID, MEMBER_NAME, POSITION, PW)
-VALUES (101, 'namhm1@naver.com', 'hello.git', '안녕하세요~~', 'member2', 'member2', 'Frontend', '1234');
+VALUES (101, 'namhm1@naver.com', 'hello.git', '안녕하세요~~', 'member2', 'member2', 'Frontend', '12341234');
 INSERT INTO MEMBER(MEMBER_ID, EMAIL, GIT_ADDRESS, INTRO, LOGIN_ID, MEMBER_NAME, POSITION, PW)
-VALUES (102, 'namhm2@naver.com', 'hello.git', '안녕하세요~~', 'member3', 'member3', 'Frontend', '1234');
+VALUES (102, 'namhm2@naver.com', 'hello.git', '안녕하세요~~', 'member3', 'member3', 'Frontend', '12341234');
 INSERT INTO MEMBER(MEMBER_ID, EMAIL, GIT_ADDRESS, INTRO, LOGIN_ID, MEMBER_NAME, POSITION, PW)
-VALUES (103, 'namhm3@naver.com', 'hello.git', '안녕하세요~~', 'member4', 'member4', 'Backend', '1234');
+VALUES (103, 'namhm3@naver.com', 'hello.git', '안녕하세요~~', 'member4', 'member4', 'Backend', '12341234');
 INSERT INTO MEMBER(MEMBER_ID, EMAIL, GIT_ADDRESS, INTRO, LOGIN_ID, MEMBER_NAME, POSITION, PW)
-VALUES (104, 'namhm4@naver.com', 'hello.git', '안녕하세요~~', 'member5', 'member5', 'Backend', '1234');
+VALUES (104, 'namhm4@naver.com', 'hello.git', '안녕하세요~~', 'member5', 'member5', 'Backend', '12341234');
 INSERT INTO MEMBER(MEMBER_ID, EMAIL, GIT_ADDRESS, INTRO, LOGIN_ID, MEMBER_NAME, POSITION, PW)
-VALUES (105, 'namhm5@naver.com', 'hello.git', '안녕하세요~~', 'member6', 'member6', 'IOS', '1234');
+VALUES (105, 'namhm5@naver.com', 'hello.git', '안녕하세요~~', 'member6', 'member6', 'IOS', '12341234');
 INSERT INTO MEMBER(MEMBER_ID, EMAIL, GIT_ADDRESS, INTRO, LOGIN_ID, MEMBER_NAME, POSITION, PW)
-VALUES (106, 'namhm6@naver.com', 'hello.git', '안녕하세요~~', 'member7', 'member7', 'IOS', '1234');
+VALUES (106, 'namhm6@naver.com', 'hello.git', '안녕하세요~~', 'member7', 'member7', 'IOS', '12341234');
 INSERT INTO MEMBER(MEMBER_ID, EMAIL, GIT_ADDRESS, INTRO, LOGIN_ID, MEMBER_NAME, POSITION, PW)
-VALUES (107, 'namhm7@naver.com', 'hello.git', '안녕하세요~~', 'member8', 'member8', 'Android', '1234');
+VALUES (107, 'namhm7@naver.com', 'hello.git', '안녕하세요~~', 'member8', 'member8', 'Android', '12341234');
 INSERT INTO MEMBER(MEMBER_ID, EMAIL, GIT_ADDRESS, INTRO, LOGIN_ID, MEMBER_NAME, POSITION, PW)
-VALUES (108, 'namhm8@naver.com', 'hello.git', '안녕하세요~~', 'member9', 'member9', 'Android', '1234');
+VALUES (108, 'namhm8@naver.com', 'hello.git', '안녕하세요~~', 'member9', 'member9', 'Android', '12341234');
 
 INSERT INTO project_positions(PROJECT_ID, POSITIONS) VALUES (1, 'Backend');
 INSERT INTO project_positions(PROJECT_ID, POSITIONS) VALUES (1, 'Frontend');
