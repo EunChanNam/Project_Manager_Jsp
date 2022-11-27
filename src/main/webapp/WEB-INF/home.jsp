@@ -54,14 +54,14 @@
     <div class="inner">
 
         <div class="text-title">
-            <span class="title">포지션</span>
+            <span class="title">${member.name}</span>
         </div>
         <div class="text-body">
             <div class="row">
                 <div class="member-detail detail-second">
                     <div class="detail-title">깃허브</div>
                     <button class="bton btn--blue-reverse " type="button">
-                        <a class="detail-content a-font" href="https://github.com/InQ-InQ-InQ-InQ-InQ/InQ_PJ_Manager_Web">인큐 깃허브</a>
+                        <a class="detail-content a-font" href="${member.gitAddress}">My GitHub</a>
                     </button>
                 </div>
                 <div class="member-detail">
@@ -139,7 +139,7 @@
     <div class="inner">
 
         <div class="text-title">
-            <a href="/projects" <%--th:href="@{/projects}--%>"><span onClick="location.href='project/project_info.jsp'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">프로젝트</span></a>
+            <a href="/projects" <%--th:href="@{/projects}--%>"><span onClick="location.href='project/project_info.jsp'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">모집중인 프로젝트</span></a>
         </div>
         <div class="swiper">
             <div class="card-list swiper-wrapper">
