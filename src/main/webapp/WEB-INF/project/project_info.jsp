@@ -1,3 +1,5 @@
+<%@ page import="team.projectmanager.domain.project.Project" %>
+<%@ page import="team.projectmanager.domain.project.ProjectStatus" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -34,6 +36,11 @@
       $("#footers").load("/common/footer.html");  // 원하는 파일 경로를 삽입
     });
   </script>
+  <%
+    Project project = (Project) request.getAttribute("project");
+    boolean isAdmin = (boolean) request.getAttribute("isAdmin");
+    boolean isJoin = (boolean) request.getAttribute("isJoin");
+  %>
 </head>
 <body>
   <!-- Header -->
@@ -84,14 +91,14 @@
           <form action="/memberproject/join" <%--th:action="@{/memberproject/join}"--%> method="post">
             <input type="hidden" value="${projectId}" name="projectId" <%--th:value="${projectId}" th:name="projectId"--%>>
             <%
-              if (!(boolean)request.getAttribute("isJoin")){
+              if (!isJoin){
             %>
             <input <%--th:if="${!isJoin}"--%> type="submit" value="참여하기" class="bton btn--reverse row box">
             <%}%>
           </form>
             <!-- Button trigger modal -->
           <%
-            if (!(boolean)request.getAttribute("isAdmin")){
+            if (isAdmin || project.getStatus() == ProjectStatus.COLLECT){
           %>
           <button <%--th:if="${isAdmin}"--%> type="button" class="btn btn-primary bton btn--blue-reverse row box" data-toggle="modal" data-target="#exampleModalCenter">
             프로젝트 상태변경
@@ -112,8 +119,8 @@
   
                     <div class="radio-box" <%--th:each="status : ${statusList}"--%>>
                       <c:forEach items="${statusList}" var="status">
-                      <label <%--th:for="${#ids.next('projectStatus')}" th:text="${status}"--%> for="${status}">모집중</label>
-                      <input <%--th:value="${status}" th:name="projectStatus" th:id="projectStatus"--%> type="radio" id="${status}" name="status" value="${status}">
+                      <label <%--th:for="${#ids.next('projectStatus')}" th:text="${status}"--%> for="${status}">${status}</label>
+                      <input <%--th:value="${status}" th:name="projectStatus" th:id="projectStatus"--%> type="radio" id="${status}" name="projectStatus" value="${status}">
                       <input type="hidden" value="${projectId}" name="projectId" <%--th:value="${projectId}" th:name="projectId"--%>>
                       </c:forEach>
                     </div>
@@ -138,23 +145,23 @@
           <div class="sub-body">
             <div class="font-style">
               <span class="state-text">프로젝트 생성자</span>
-              <span <%--th:text="${admin.name}"--%> class="project-constructor">김인큐</span>
+              <span <%--th:text="${admin.name}"--%> class="project-constructor">${admin.name}</span>
             </div>
             <div class="font-style">
               <span class="state-text">프로젝트 상태</span>
-              <span <%--th:text="*{status.name()}"--%> class="project-state">모집중</span>
+              <span <%--th:text="*{status.name()}"--%> class="project-state">${project.status}</span>
             </div>
             <div class="font-style">
               <span class="state-text">모집마감 기간</span>
-              <span <%--th:text="'~' + *{period}"--%> class="recurit-term">~ 2022.05.30</span>
+              <span <%--th:text="'~' + *{period}"--%> class="recurit-term">~ ${project.period}</span>
             </div>
             <div class="font-style">
               <span class="state-text">프로젝트 기간</span>
-              <span <%--th:text="|*{startDate} ~ *{endDate}|"--%> class="project-term">2022.06.01 ~ 2022.06.30</span>
+              <span <%--th:text="|*{startDate} ~ *{endDate}|"--%> class="project-term">${project.startDate} ~ ${project.endDate}</span>
             </div>
             <hr style="margin: 60px 0;">
             <div <%--th:text="*{introduction}"--%> class="project-content">
-              상세 설명
+              ${project.introduction}
             </div>
           </div>
         </div>
