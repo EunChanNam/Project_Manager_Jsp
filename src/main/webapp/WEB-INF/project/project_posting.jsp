@@ -18,7 +18,6 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <!-- CSS 파일 연결 -->
@@ -44,24 +43,24 @@
     <div class="text-title">
       <span class="title">프로젝트 생성</span>
     </div>
-    <form action="/projects/new" method="post" <%--th:action method="post" th:object="${projectForm}"--%> class="form-example">
+    <form action="/projects/new" method="post" class="form-example">
       <div class="text-body">
         <div class="row">
           <label for="projectName" class="sub-title">프로젝트 이름*</label>
-          <input <%--th:field="*{name}"--%> type="text" id="projectName" name="name" required >
+          <input type="text" id="projectName" name="name" required >
         </div>
         <div class="row">
           <label for="recruitDateStart" class="sub-title">모집완료 기간*</label>
           <div class="date-bundle">
-            <input <%--th:field="*{period}"--%> type="date" class="date-one" id="recruitDateStart" name="period" required >
+            <input type="date" class="date-one" id="recruitDateStart" name="period" required >
           </div>
         </div>
         <div class="row">
           <label for="projectDateStart" class="sub-title">프로젝트 기간*</label>
           <div class="date-bundle">
-            <input <%--th:field="*{startDate}"--%> type="date" class="date-one" id="projectDateStart" name="startDate" required >
+            <input type="date" class="date-one" id="projectDateStart" name="startDate" required >
             <span> ~ </span>
-            <input <%--th:field="*{endDate}"--%> type="date" class="date-one" id="projectDateEnd" name="endDate" required >
+            <input type="date" class="date-one" id="projectDateEnd" name="endDate" required >
           </div>
         </div>
         <div class="row">
@@ -85,10 +84,10 @@
                 </div>
                 <div class="modal-body">
 
-                  <div class="check-box" <%--th:each="position : ${positionList}"--%>>
+                  <div class="check-box">
                     <c:forEach items="${positionList}" var="position">
-                    <label <%--th:for="${#ids.next('positions')}" th:text="${position.name()}"--%> for="${position}">${position}</label>
-                    <input <%--th:field="*{positions}" th:value="${position.name()}"--%> type="checkbox" id="${position}" name="${position}">
+                    <label for="${position}">${position}</label>
+                    <input type="checkbox" id="${position}" name="${position}">
                     </c:forEach>
                   </div>
 
@@ -102,7 +101,7 @@
         </div>
         <div class="row">
           <label for="projectInfo" class="sub-title">프로젝트 소개</label>
-          <textarea <%--th:field="*{introduction}"--%> id="projectInfo" name="introduction" rows="9" cols="33" required></textarea>
+          <textarea id="projectInfo" name="introduction" rows="9" cols="33" required></textarea>
         </div>
 
         <div class="btn-row">

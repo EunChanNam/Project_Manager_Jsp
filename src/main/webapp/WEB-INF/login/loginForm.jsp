@@ -45,18 +45,16 @@
       <div class="text-title">
         <span class="title">로그인</span>
       </div>
-      <form <%--th:action method="post" th:object="${loginForm}"--%> action="/login" method="post">
+      <form action="/login" method="post">
       <div class="text-body">
         <div class="row">
           <label for="loginId" class="sub-title">아이디</label>
-          <input <%--th:field="*{loginId}"--%> type="text" id="loginId" name="loginId" required
-                minlength="4" maxlength="15" <%--th:errorclass="field-error"--%>>
-<%--          <div th:errors="*{loginId}"></div>--%>
+          <input type="text" id="loginId" name="loginId" required
+                minlength="4" maxlength="15">
         </div>
         <div class="row">
           <label for="loginPw" class="sub-title">비밀번호</label>
-          <input <%--th:field="*{pw}" th:errorclass="field-error"--%> type="password" id="loginPw" name="pw" minlength="8" required>
-<%--          <div th:errors="*{pw}"></div>--%>
+          <input type="password" id="loginPw" name="pw" minlength="8" required>
         </div>
 
 <!--        글로벌 오류-->
@@ -75,7 +73,7 @@
           </div>
 
           <div class="btn-row">
-            <a class="btn_signup" <%--th:href="@{/members/join}"--%> href="/members/join">
+            <a class="btn_signup" href="/members/join">
               <input class="bton btn--blue" type="button" value="회원 가입하기">
             </a>
             <!-- 회원가입 페이지 링크 연결하기 -->

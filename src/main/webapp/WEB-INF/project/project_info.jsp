@@ -47,7 +47,7 @@
   <div id="headers"></div>
 
   <!-- Project Information -->
-  <section class="project-info" <%--th:object="${project}"--%>>
+  <section class="project-info">
     <div class="inner">
 
       <div class="text-title">
@@ -63,7 +63,7 @@
               <span class="icon material-symbols-outlined">group_add</span>
               <span class="text">모집중인 역할</span>
             </div>
-            <div class="content" <%--th:each="position : *{positions}"--%>>
+            <div class="content">
               <c:forEach items="${project.positions}" var="position">
               <div class="role-body">
                 <span class="icon material-symbols-outlined">account_circle${position}</span>
@@ -77,35 +77,34 @@
               <span class="icon material-symbols-outlined">group</span>
               <span class="text">참여중인 멤버</span>
             </div>
-            <div class="content" <%--th:each="memberProject : *{memberProjects}"--%>>
+            <div class="content">
               <c:forEach items="${project.memberProjects}" var="memberProject">
               <div class="role-body">
                 <span class="icon material-symbols-outlined">account_circle${memberProject.member.name}</span>
-                <span <%--th:text="${memberProject.member.position}"--%> class="role">${memberProject.member.position}</span>
+                <span class="role">${memberProject.member.position}</span>
               </div>
               </c:forEach>
             </div>
           </div>
-        
-          <!-- <button class="bton btn--reverse row box">참여하기</button> -->
-          <form action="/memberproject/join" <%--th:action="@{/memberproject/join}"--%> method="post">
-            <input type="hidden" value="${projectId}" name="projectId" <%--th:value="${projectId}" th:name="projectId"--%>>
+
+          <form action="/memberproject/join" method="post">
+            <input type="hidden" value="${projectId}" name="projectId">
             <%
               if (!isJoin){
             %>
-            <input <%--th:if="${!isJoin}"--%> type="submit" value="참여하기" class="bton btn--reverse row box">
+            <input type="submit" value="참여하기" class="bton btn--reverse row box">
             <%}%>
           </form>
             <!-- Button trigger modal -->
           <%
             if (isAdmin || project.getStatus() == ProjectStatus.COLLECT){
           %>
-          <button <%--th:if="${isAdmin}"--%> type="button" class="btn btn-primary bton btn--blue-reverse row box" data-toggle="modal" data-target="#exampleModalCenter">
+          <button type="button" class="btn btn-primary bton btn--blue-reverse row box" data-toggle="modal" data-target="#exampleModalCenter">
             프로젝트 상태변경
           </button>
           <%}%>
           <!-- Modal -->
-          <form action="/projects/edit/status" <%--th:action="@{/projects/edit/status}"--%> method="post">
+          <form action="/projects/edit/status" method="post">
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -117,17 +116,16 @@
                   </div>
                   <div class="modal-body">
   
-                    <div class="radio-box" <%--th:each="status : ${statusList}"--%>>
+                    <div class="radio-box">
                       <c:forEach items="${statusList}" var="status">
-                      <label <%--th:for="${#ids.next('projectStatus')}" th:text="${status}"--%> for="${status}">${status}</label>
-                      <input <%--th:value="${status}" th:name="projectStatus" th:id="projectStatus"--%> type="radio" id="${status}" name="projectStatus" value="${status}">
-                      <input type="hidden" value="${projectId}" name="projectId" <%--th:value="${projectId}" th:name="projectId"--%>>
+                      <label for="${status}">${status}</label>
+                      <input type="radio" id="${status}" name="projectStatus" value="${status}">
+                      <input type="hidden" value="${projectId}" name="projectId">
                       </c:forEach>
                     </div>
   
                   </div>
                   <div class="modal-footer">
-                    <!-- <button type="button" class="btn btn-primary bton btn--reverse" >완료</button> -->
                     <input type="submit" value="완료" class="btn btn-primary bton btn--reverse">
                   </div>
                 </div>
@@ -137,7 +135,7 @@
 
         </div>
         <!-- Body Right -->
-        <div class="body-right box" <%--th:object="${project}"--%>>
+        <div class="body-right box">
           <div class="sub-title">
             <span class="icon material-symbols-outlined">description</span>
             <div class="title">프로젝트 설명</div>
@@ -145,22 +143,22 @@
           <div class="sub-body">
             <div class="font-style">
               <span class="state-text">프로젝트 생성자</span>
-              <span <%--th:text="${admin.name}"--%> class="project-constructor">${admin.name}</span>
+              <span class="project-constructor">${admin.name}</span>
             </div>
             <div class="font-style">
               <span class="state-text">프로젝트 상태</span>
-              <span <%--th:text="*{status.name()}"--%> class="project-state">${project.status}</span>
+              <span class="project-state">${project.status}</span>
             </div>
             <div class="font-style">
               <span class="state-text">모집마감 기간</span>
-              <span <%--th:text="'~' + *{period}"--%> class="recurit-term">~ ${project.period}</span>
+              <span class="recurit-term">~ ${project.period}</span>
             </div>
             <div class="font-style">
               <span class="state-text">프로젝트 기간</span>
-              <span <%--th:text="|*{startDate} ~ *{endDate}|"--%> class="project-term">${project.startDate} ~ ${project.endDate}</span>
+              <span> class="project-term">${project.startDate} ~ ${project.endDate}</span>
             </div>
             <hr style="margin: 60px 0;">
-            <div <%--th:text="*{introduction}"--%> class="project-content">
+            <div class="project-content">
               ${project.introduction}
             </div>
           </div>

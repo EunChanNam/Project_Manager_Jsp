@@ -1,4 +1,3 @@
-<%@ page import="team.projectmanager.domain.member.Member" %>
 <%@ page import="team.projectmanager.domain.memberproject.MemberProject" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -66,17 +65,15 @@
                 </div>
                 <div class="member-detail">
                     <div class="detail-title">한 줄 소개</div>
-                    <span <%--th:text="${member.intro}"--%> class="detail-content">${member.intro}</span>
+                    <span class="detail-content">${member.intro}</span>
                 </div>
             </div>
             <div class="row">
                 <div class="member-skill">
                     <div class="skill-title">보유 스킬</div>
-<%--                    <th:block th:each="skill : ${member.skills}">--%>
                     <c:forEach items="${member.skills}" var="skill">
-                        <span class="skill-content" <%--th:text="${skill.name()}"--%>>${skill}</span>
+                        <span class="skill-content">${skill}</span>
                     </c:forEach>
-<%--                    </th:block>--%>
                 </div>
             </div>
             <div class="row">
@@ -139,7 +136,7 @@
     <div class="inner">
 
         <div class="text-title">
-            <a href="/projects" <%--th:href="@{/projects}--%>><span onClick="location.href='project/project_info.jsp'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">모집중인 프로젝트</span></a>
+            <a href="/projects"><span onClick="location.href='project/project_info.jsp'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">모집중인 프로젝트</span></a>
         </div>
         <div class="swiper">
             <div class="swiper-prev">
@@ -151,24 +148,24 @@
             <div class="card-list swiper-wrapper">
 
                 <c:forEach items="${projects}" var="project">
-                <div class="card swiper-slide" <%--th:each="project : ${projects}"--%>>
+                <div class="card swiper-slide">
                     <img class="card-img-top" src="images/inq_logo.png" alt="Card image cap" />
                     <div class="card-body">
-                        <a href="/projects/${project.id}" <%--th:href="@{/projects/{projectId}(projectId = ${project.id})}"--%>><div class="card-text card-title" <%--th:text="${project.name}"--%>>${project.name}</div></a>
+                        <a href="/projects/${project.id}"><div class="card-text card-title">${project.name}</div></a>
                         <div class="card-text">
                             <div class="card-info">
                                 <div class="info-left">
                                     <div class="info-date">
                                         모집기간
-                                        <span class="recruit-date" <%--th:text="'~ ' + ${project.period}"--%>>~ ${project.period}</span>
+                                        <span class="recruit-date">~ ${project.period}</span>
                                     </div>
                                 </div>
                                 <div class="info-right">
                                     <div class="info-member">
                                         <span class="symbol material-icons">person</span>
-                                        <span class="member-personnel" <%--th:text="${project.memberProjects.size()}"--%>>${project.memberProjects.size()}</span>
+                                        <span class="member-personnel">${project.memberProjects.size()}</span>
                                     </div>
-                                    <div <%--th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).ING}"--%> class="info-progress execution">${project.status}</div>
+                                    <div class="info-progress execution">${project.status}</div>
                                 </div>
                             </div>
                         </div>

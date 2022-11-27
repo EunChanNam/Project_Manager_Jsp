@@ -40,64 +40,62 @@
     <div id="headers"></div>
   </header>
   <section class="search-bar">
-    <form <%--th:action--%> action="/projects" method="get" <%--th:object="${search}"--%>>
+    <form action="/projects" method="get">
       <div class="search-radio">
         <div class="inner">
 
           <div class="radio-box">
-            <input <%--th:value="COLLECT" th:name="status"--%> type="radio" id="recruitment" name="status" value="COLLECT">
+            <input type="radio" id="recruitment" name="status" value="COLLECT">
             <label for="recruitment" class="bton underline">모집중</label>
           </div>
 
           <div class="radio-box">
-            <input <%--th:value="ING" th:name="status"--%> type="radio" id="progress" name="status" value="ING">
+            <input type="radio" id="progress" name="status" value="ING">
             <label for="progress" class="bton underline">진행중</label>
           </div>
 
           <div class="radio-box">
-            <input <%--th:value="FIN" th:name="status"--%> type="radio" id="complete" name="status" value="FIN">
+            <input type="radio" id="complete" name="status" value="FIN">
             <label for="complete" class="bton underline">완료</label>
           </div>
 
           <div class="search">
             <span class="icon material-symbols-outlined">search</span>
-            <input <%--th:field="*{name}"--%> placeholder="프로젝트명으로 검색" type="text" name="name" id="search-text">
+            <input placeholder="프로젝트명으로 검색" type="text" name="name" id="search-text">
             <input type="submit" class="bton btn--reverse" value="검색">
           </div>
 
         </div>
       </div>
     </form>
-    <a <%--th:href="@{/projects/new}"--%> class="bton btn--reverse posting" onclick="location.href='/projects/new'">프로젝트 등록</a>
+    <a class="bton btn--reverse posting" onclick="location.href='/projects/new'">프로젝트 등록</a>
   </section>
   <!-- Project Bundle-->
   <section class="project-bundle">
     <div class="inner">
 
-      <div class="card-list" <%--th:each="project : ${projects}"--%>>
+      <div class="card-list">
         <c:forEach items="${projects}" var="project">
         <div class="card">
           <img class="card-img-top" src="images/inq_logo.png" alt="Card image cap" />
           <div class="card-body">
-            <a href="/projects/${project.id}" <%--th:href="@{/projects/{projectId}(projectId = ${project.id})}"--%>><div class="card-text card-title" <%--th:text="${project.name}"--%>>${project.name}</div></a>
+            <a href="/projects/${project.id}"><div class="card-text card-title">${project.name}</div></a>
             <div class="card-text">
               <div class="card-info">
                 <div class="info-left">
                   <div class="info-date">
                     모집기간
-                    <span class="recruit-date" <%--th:text="'~' + ${project.period}"--%>>${project.startDate} ~ ${project.endDate}</span>
+                    <span class="recruit-date">${project.startDate} ~ ${project.endDate}</span>
                   </div>
                 </div>
                 <div class="info-right">
                   <div class="info-member">
                     <span class="symbol material-icons">person</span>
-                    <span class="member-personnel" <%--th:text="${project.memberProjects.size()}"--%>>
+                    <span class="member-personnel">
                       ${project.memberProjects.size()}
                     </span>
                   </div>
-                  <div <%--th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).ING}"--%> class="info-progress execution">${project.status}</div>
-<%--                  <div &lt;%&ndash;th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).COLLECT}"&ndash;%&gt; class="info-progress recruit">모집중</div>--%>
-<%--                  <div &lt;%&ndash;th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).FIN}"&ndash;%&gt; class="info-progress complete">완료</div>--%>
+                  <div class="info-progress execution">${project.status}</div>
                 </div>
               </div>
             </div>
