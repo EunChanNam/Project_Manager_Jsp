@@ -71,7 +71,7 @@ public class MemberController {
 
         memberService.join(member);
 
-        return "redirect:/login";
+        return "redirect:/login?join=success";
     }
 
     private boolean checkDuplicatedLoginId(MemberForm memberForm) {

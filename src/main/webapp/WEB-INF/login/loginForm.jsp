@@ -25,6 +25,13 @@
     $(document).ready( function() {
       $("#footers").load("../common/footer.html");  // 원하는 파일 경로를 삽입
     });
+
+    // 회원가입 성공 처리
+    <%
+      if ((boolean) request.getAttribute("isAfterJoin")){
+    %>
+    alert("회원가입이 완료되었습니다!");
+    <%}%>
   </script>
 </head>
 <body>

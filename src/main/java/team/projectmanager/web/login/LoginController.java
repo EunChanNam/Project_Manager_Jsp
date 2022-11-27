@@ -8,6 +8,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import team.projectmanager.LoginConst;
 import team.projectmanager.domain.login.LoginService;
 import team.projectmanager.domain.member.Member;
@@ -22,7 +23,11 @@ public class LoginController {
     private final LoginService loginService;
 
     @GetMapping("/login")
-    public String loginForm(@ModelAttribute("loginForm") LoginForm loginForm, Model model) {
+    public String loginForm(@ModelAttribute("loginForm") LoginForm loginForm, Model model,
+                            @RequestParam String join) {
+        if (join.equals("success")) {
+            model.addAttribute("isAfterJoin", true);
+        } else model.addAttribute("isAfterJoin", false);
 
         model.addAttribute("hasError", false);
         return "login/loginForm";
