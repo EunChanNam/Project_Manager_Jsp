@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -43,7 +44,7 @@
     <div class="inner">
 
       <div class="text-title">
-        <span class="title">프로젝트 타이틀</span>
+        <span class="title">${project.name}</span>
       </div>
 
       <div class="text-body">
@@ -56,10 +57,11 @@
               <span class="text">모집중인 역할</span>
             </div>
             <div class="content" <%--th:each="position : *{positions}"--%>>
+              <c:forEach items="${project.positions}" var="position">
               <div class="role-body">
-                <span class="icon material-symbols-outlined">account_circle_full</span>
-                <span <%--th:text="${position.name()}"--%> class="role">frontend</span>
+                <span class="icon material-symbols-outlined">account_circle${position}</span>
               </div>
+              </c:forEach>
             </div>
           </div>
 
@@ -69,11 +71,12 @@
               <span class="text">참여중인 멤버</span>
             </div>
             <div class="content" <%--th:each="memberProject : *{memberProjects}"--%>>
+              <c:forEach items="${project.memberProjects}" var="memberProject">
               <div class="role-body">
-                <span class="icon material-symbols-outlined">account_circle_full</span>
-                <span <%--th:text="${memberProject.member.name}"--%> class="role">김인큐</span>
-                <span <%--th:text="${memberProject.member.position}"--%> class="role">포지션</span>
+                <span class="icon material-symbols-outlined">account_circle${memberProject.member.name}</span>
+                <span <%--th:text="${memberProject.member.position}"--%> class="role">${memberProject.member.position}</span>
               </div>
+              </c:forEach>
             </div>
           </div>
         

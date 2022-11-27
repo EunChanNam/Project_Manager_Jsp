@@ -61,18 +61,18 @@ public class ProjectController {
     public String projectInfo(@PathVariable Long projectId, Model model,
                               @SessionAttribute(value = LoginConst.LOGIN_MEMBER, required = false) Long memberId) {
 
-//        Project project = ps.findProjectById(projectId);
-//
-//        boolean isJoin = getIsJoin(memberId, project);
-//
-//        Member admin = mr.findByIdLazy(project.getAdminId());
-//
-//        boolean isAdmin = admin.getId().equals(memberId);
-//
-//        model.addAttribute("isAdmin", isAdmin);
-//        model.addAttribute("isJoin", isJoin);
-//        model.addAttribute("admin", admin);
-//        model.addAttribute("project", project);
+        Project project = ps.findProjectById(projectId);
+
+        boolean isJoin = getIsJoin(memberId, project);
+
+        Member admin = mr.findByIdLazy(project.getAdminId());
+
+        boolean isAdmin = admin.getId().equals(memberId);
+
+        model.addAttribute("isAdmin", isAdmin);
+        model.addAttribute("isJoin", isJoin);
+        model.addAttribute("admin", admin);
+        model.addAttribute("project", project);
 
         return "/project/project_info";
     }
