@@ -25,31 +25,27 @@ public class HomeController {
     private final MemberProjectRepository mpr;
     private final ProjectService ps;
 
-    //    @GetMapping("/")
-//    public String home(@SessionAttribute(name = LoginConst.LOGIN_MEMBER, required = false) Long memberId,
-//                       Model model) {
-//
-//        if (memberId == null) {
-//            return "redirect:/login";
-//        }
-//
-//        Member member = memberService.findById(memberId);
-//        MemberProject ingMP = mpr.findMPByStatus(memberId, ProjectStatus.ING);
-//        MemberProject finMP = mpr.findMPByStatus(memberId, ProjectStatus.FIN);
-//        MemberProject collectMP = mpr.findMPByStatus(memberId, ProjectStatus.COLLECT);
-//
-//        List<Project> collectProjects = ps.findByStatus(ProjectStatus.COLLECT);
-//
-//        model.addAttribute("member", member);
-//        model.addAttribute("ingMP", ingMP);
-//        model.addAttribute("finMP", finMP);
-//        model.addAttribute("collectMP", collectMP);
-//        model.addAttribute("projects", collectProjects);
-//
-//        return "home";
-//    }
-    @GetMapping("/")
-    public String home() {
+        @GetMapping("/")
+    public String home(@SessionAttribute(name = LoginConst.LOGIN_MEMBER, required = false) Long memberId,
+                       Model model) {
+
+        if (memberId == null) {
+            return "redirect:/login/loginForm";
+        }
+
+        Member member = memberService.findById(memberId);
+        MemberProject ingMP = mpr.findMPByStatus(memberId, ProjectStatus.ING);
+        MemberProject finMP = mpr.findMPByStatus(memberId, ProjectStatus.FIN);
+        MemberProject collectMP = mpr.findMPByStatus(memberId, ProjectStatus.COLLECT);
+
+        List<Project> collectProjects = ps.findByStatus(ProjectStatus.COLLECT);
+
+        model.addAttribute("member", member);
+        model.addAttribute("ingMP", ingMP);
+        model.addAttribute("finMP", finMP);
+        model.addAttribute("collectMP", collectMP);
+        model.addAttribute("projects", collectProjects);
+
         return "home";
     }
 }
