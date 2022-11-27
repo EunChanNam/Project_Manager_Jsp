@@ -2,6 +2,7 @@ package team.projectmanager.web.login;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,22 +22,21 @@ public class LoginController {
     private final LoginService loginService;
 
     @GetMapping("/login")
-    public String loginForm(@ModelAttribute("loginForm") LoginForm loginForm) {
+    public String loginForm(@ModelAttribute("loginForm") LoginForm loginForm, Model model) {
 
+        model.addAttribute("hasError", false);
         return "login/loginForm";
     }
 
     @PostMapping("/login")
-    public String loginForm(@Validated @ModelAttribute LoginForm loginForm,
-                            BindingResult bindingResult, HttpServletRequest request) {
-        if (bindingResult.hasErrors()) {
-            return "login/loginForm";
-        }
+    public String loginForm(@ModelAttribute LoginForm loginForm,
+                            BindingResult bindingResult, HttpServletRequest request,
+                            Model model) {
 
         Member loginMember = loginService.login(loginForm.getLoginId(), loginForm.getPw());
 
         if (loginMember == null) {
-            bindingResult.reject("loginFail", "아이디 혹은 비밀번호가 틀립니다.");
+            model.addAttribute("hasError", true);
             return "login/loginForm";
         }
 

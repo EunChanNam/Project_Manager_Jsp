@@ -26,13 +26,6 @@
       $("#footers").load("../common/footer.html");  // 원하는 파일 경로를 삽입
     });
   </script>
-<!--  에러 클래스 추가-->
-  <style>
-    .field-error {
-      border-color: #dc3545;
-      color: #dc3545;
-    }
-  </style>
 </head>
 <body>
   <!-- Header -->
@@ -45,6 +38,12 @@
       <div class="text-title">
         <span class="title">로그인</span>
       </div>
+        <%--로그인 오류--%>
+        <%
+            if ((boolean)request.getAttribute("hasError")){
+        %>
+        <script>alert("아이디 혹은 비밀번호가 틀립니다.")</script>
+        <%}%>
       <form action="/login" method="post">
       <div class="text-body">
         <div class="row">
@@ -56,12 +55,6 @@
           <label for="loginPw" class="sub-title">비밀번호</label>
           <input type="password" id="loginPw" name="pw" minlength="8" required>
         </div>
-
-<!--        글로벌 오류-->
-<%--        <div th:if="${#fields.hasGlobalErrors()}">--%>
-<%--          <p class="field-error" th:each="err : ${#fields.globalErrors()}"--%>
-<%--             th:text="${err}">글로벌 오류 메시지</p>--%>
-<%--        </div>--%>
 
         <div class="find-member">
           <a href="javascript:void(0)" class="find-account">아이디 찾기</a>
