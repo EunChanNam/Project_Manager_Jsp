@@ -97,7 +97,7 @@
           </form>
             <!-- Button trigger modal -->
           <%
-            if (isAdmin || project.getStatus() == ProjectStatus.COLLECT){
+            if (isAdmin && project.getStatus() == ProjectStatus.COLLECT){
           %>
           <button type="button" class="btn btn-primary bton btn--blue-reverse row box" data-toggle="modal" data-target="#exampleModalCenter">
             프로젝트 상태변경
