@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -32,12 +33,6 @@
             $("#footers").load("../common/footer.html");  // 원하는 파일 경로를 삽입
         });
     </script>
-    <style>
-        .field-error {
-            border-color: #dc3545;
-            color: #dc3545;
-        }
-    </style>
 </head>
 <body>
 <!-- Header -->
@@ -50,43 +45,42 @@
         <div class="text-title">
             <span class="title">회원 가입</span>
         </div>
-        <form th:action method="post" class="form-example" th:object="${memberForm}">
+        <form action="/members/join" method="post" class="form-example">
             <div class="text-body">
                 <div class="row">
                     <label for="memberName" class="sub-title">이름*</label>
-                    <input th:field="*{name}" type="text" id="memberName" name="memberName" required >
+                    <input type="text" id="memberName" name="name" required >
                 </div>
                 <div class="row">
                     <label for="signupId" class="sub-title">아이디*</label>
-                    <input th:field="*{loginId}" type="text" id="signupId" name="signupId" required
+                    <input type="text" id="signupId" name="loginId" required
                            minlength="4" maxlength="15">
-                    <div th:class="field-error" th:errors="*{loginId}"></div>
+                    <!--            아이디 중복 오류 메세지-->
                 </div>
                 <div class="row">
                     <label for="signupPw" class="sub-title">비밀번호*</label>
-                    <input th:field="*{pw}" type="password" id="signupPw" name="signupPw" minlength="8" required >
+                    <input type="password" id="signupPw" name="pw" minlength="8" required >
                 </div>
                 <div class="row">
                     <label for="signupPwCheck" class="sub-title">비밀번호 확인*</label>
-                    <input th:field="*{checkPw}" type="password" id="signupPwCheck" name="signupPwCheck" minlength="8" required >
+                    <input type="password" id="signupPwCheck" name="checkPw" minlength="8" required >
                     <!--            비밀번호 확인 오류 메세지-->
-                    <div th:class="field-error" th:errors="*{checkPw}"></div>
                 </div>
                 <div class="row">
                     <label for="signupEmail" class="sub-title">이메일*</label>
-                    <input th:field="*{email}" type="email" id="signupEmail" name="signupEmail" required >
+                    <input type="email" id="signupEmail" name="email" required >
                 </div>
                 <div class="row">
                     <label for="memberPosition" class="sub-title">포지션*</label>
-                    <select th:field="*{position}" name="memberPosition" id="memberPosition" required >
-                        <option value="">--- Postion ---</option>
-                        <th:blcok th:each="position : ${positionList}">
-                            <option th:value="${position.name()}" th:text="${position.name()}">Full Stack</option>
-                        </th:blcok>
+                    <select name="memberPosition" id="memberPosition" required >
+                        <option value="">--- Position ---</option>
+                        <c:forEach items="${positionList}" var="position">
+                            <option name="position" value="${position}">${position}</option>
+                        </c:forEach>
                     </select>
                 </div>
                 <div class="row">
-                    <label for="memberSkill" class="sub-title">보유기술*</label>
+                    <label class="sub-title">보유기술*</label>
                     <div class="modal-btn">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary bton btn--blue-reverse" data-toggle="modal" data-target="#exampleModalCenter">
@@ -105,10 +99,12 @@
                                     </button>
 
                                 </div>
-                                <div th:each="skill : ${skillList}" class="modal-body">
+                                <div>
                                     <div class="check-box">
-                                        <label th:for="${#ids.next('skills')}" th:text="${skill.name()}" for="HTML">HTML</label>
-                                        <input type="checkbox" th:field="*{skills}" th:value="${skill.name()}" id="HTML" name="HTML">
+                                        <c:forEach items="${skillList}" var="skill">
+                                            <label for="${skill}">${skill}</label>
+                                            <input type="checkbox" id="${skill}" name="${skill}" value="${skill}">
+                                        </c:forEach>
                                     </div>
                                 </div>
 
@@ -122,11 +118,11 @@
                 </div>
                 <div class="row">
                     <label for="memberGithub" class="sub-title">깃허브</label>
-                    <input th:field="*{gitAddress}" type="text" id="memberGithub" name="memberGithub">
+                    <input type="text" id="memberGithub" name="gitAddress">
                 </div>
                 <div class="row">
                     <label for="memberInfo" class="sub-title">한 줄 자기소개</label>
-                    <input th:field="*{intro}" type="text" id="memberInfo" name="memberInfo" maxlength="25">
+                    <input type="text" id="memberInfo" name="intro" maxlength="25">
                 </div>
 
                 <div class="btn-row">
