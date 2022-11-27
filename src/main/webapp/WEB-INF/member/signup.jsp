@@ -56,6 +56,11 @@
                     <input type="text" id="signupId" name="loginId" required
                            minlength="4" maxlength="15">
                     <!--            아이디 중복 오류 메세지-->
+                    <%
+                        if ((boolean)request.getAttribute("isDuplicated")){
+                    %>
+                    <script>alert("이미 존재하는 아이디 입니다.")</script>
+                    <%}%>
                 </div>
                 <div class="row">
                     <label for="signupPw" class="sub-title">비밀번호*</label>
@@ -65,6 +70,11 @@
                     <label for="signupPwCheck" class="sub-title">비밀번호 확인*</label>
                     <input type="password" id="signupPwCheck" name="checkPw" minlength="8" required >
                     <!--            비밀번호 확인 오류 메세지-->
+                    <%
+                        if ((boolean)request.getAttribute("isInconsistent")){
+                    %>
+                    <script>alert("비밀번호가 일치하지 않습니다.")</script>
+                    <%}%>
                 </div>
                 <div class="row">
                     <label for="signupEmail" class="sub-title">이메일*</label>

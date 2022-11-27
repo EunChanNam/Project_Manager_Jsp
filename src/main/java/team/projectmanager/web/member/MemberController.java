@@ -2,6 +2,7 @@ package team.projectmanager.web.member;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,26 +36,30 @@ public class MemberController {
     }
 
     @GetMapping("join")
-    public String signupForm(@ModelAttribute("memberForm") MemberForm memberForm) {
+    public String signupForm(@ModelAttribute("memberForm") MemberForm memberForm, Model model) {
 
+        model.addAttribute("isDuplicated", false);
+        model.addAttribute("isInconsistent", false);
         return "member/signup";
     }
 
     @PostMapping("join")
     public String signup(@Validated @ModelAttribute MemberForm memberForm,
-                         BindingResult bindingResult) {
+                         BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return "member/signup";
         }
 
         //아이디 중복 검증
         if (checkDuplicatedLoginId(memberForm)) {
-            bindingResult.rejectValue("loginId", "DuplicatedLoginId", "이미 존재하는 아이디 입니다.");
+            model.addAttribute("isDuplicated", true);
+            model.addAttribute("isInconsistent", false);
             return "member/signup";
         }
         //비밀번호 확인 검즘
         if (!memberForm.getPw().equals(memberForm.getCheckPw())) {
-            bindingResult.rejectValue("checkPw", "NotEqualPw", "비밀번호가 일치하지 않습니다.");
+            model.addAttribute("isInconsistent", true);
+            model.addAttribute("isDuplicated", false);
             return "member/signup";
         }
 
