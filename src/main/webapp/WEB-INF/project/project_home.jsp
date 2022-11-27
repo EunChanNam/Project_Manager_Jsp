@@ -68,7 +68,7 @@
         </div>
       </div>
     </form>
-    <a <%--th:href="@{/projects/new}"--%> href="#" class="bton btn--reverse posting" onclick="location.href='/project/new'">프로젝트 등록</a>
+    <a <%--th:href="@{/projects/new}"--%> class="bton btn--reverse posting" onclick="location.href='/projects/new'">프로젝트 등록</a>
   </section>
   <!-- Project Bundle-->
   <section class="project-bundle">

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -41,26 +42,26 @@
   <div class="inner">
 
     <div class="text-title">
-      <span class="title">프로젝트 포스팅</span>
+      <span class="title">프로젝트 생성</span>
     </div>
-    <form <%--th:action method="post" th:object="${projectForm}"--%> class="form-example">
+    <form action="/projects/new" method="post" <%--th:action method="post" th:object="${projectForm}"--%> class="form-example">
       <div class="text-body">
         <div class="row">
           <label for="projectName" class="sub-title">프로젝트 이름*</label>
-          <input <%--th:field="*{name}"--%> type="text" id="projectName" name="projectName" required >
+          <input <%--th:field="*{name}"--%> type="text" id="projectName" name="name" required >
         </div>
         <div class="row">
           <label for="recruitDateStart" class="sub-title">모집완료 기간*</label>
           <div class="date-bundle">
-            <input <%--th:field="*{period}"--%> type="date" class="date-one" id="recruitDateStart" name="recruitDateStart" required >
+            <input <%--th:field="*{period}"--%> type="date" class="date-one" id="recruitDateStart" name="period" required >
           </div>
         </div>
         <div class="row">
           <label for="projectDateStart" class="sub-title">프로젝트 기간*</label>
           <div class="date-bundle">
-            <input <%--th:field="*{startDate}"--%> type="date" class="date-one" id="projectDateStart" name="projectDateStart" required >
+            <input <%--th:field="*{startDate}"--%> type="date" class="date-one" id="projectDateStart" name="startDate" required >
             <span> ~ </span>
-            <input <%--th:field="*{endDate}"--%> type="date" class="date-one" id="projectDateEnd" name="projectDateEnd" required >
+            <input <%--th:field="*{endDate}"--%> type="date" class="date-one" id="projectDateEnd" name="endDate" required >
           </div>
         </div>
         <div class="row">
@@ -77,7 +78,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Postion</h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle">Position</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -85,8 +86,10 @@
                 <div class="modal-body">
 
                   <div class="check-box" <%--th:each="position : ${positionList}"--%>>
-                    <label <%--th:for="${#ids.next('positions')}" th:text="${position.name()}"--%> for="Full Stack">Full Stack</label>
-                    <input <%--th:field="*{positions}" th:value="${position.name()}"--%> type="checkbox" id="Full Stack" name="Full Stack">
+                    <c:forEach items="${positionList}" var="position">
+                    <label <%--th:for="${#ids.next('positions')}" th:text="${position.name()}"--%> for="${position}">${position}</label>
+                    <input <%--th:field="*{positions}" th:value="${position.name()}"--%> type="checkbox" id="${position}" name="${position}">
+                    </c:forEach>
                   </div>
 
                 </div>
@@ -99,7 +102,7 @@
         </div>
         <div class="row">
           <label for="projectInfo" class="sub-title">프로젝트 소개</label>
-          <textarea <%--th:field="*{introduction}"--%> id="projectInfo" name="projectInfo" rows="9" cols="33" required></textarea>
+          <textarea <%--th:field="*{introduction}"--%> id="projectInfo" name="introduction" rows="9" cols="33" required></textarea>
         </div>
 
         <div class="btn-row">
