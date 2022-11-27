@@ -10,11 +10,11 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class MemberServiceImp implements MemberService{
 
     private final MemberRepository memberRepository;
 
-    @Transactional
     public void join(Member member) {
         memberRepository.save(member);
     }

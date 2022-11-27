@@ -2,6 +2,7 @@ package team.projectmanager.domain.member;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 import team.projectmanager.domain.memberproject.MemberProject;
 import team.projectmanager.domain.position.Position;
 import team.projectmanager.domain.skill.Skills;;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
+@Slf4j
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,6 +49,10 @@ public class Member {
         getMemberProjects().removeIf(mp -> mp.getId().equals(memberProject.getId()));
     }
 
+    public void addSkills(List<Skills> skillsList) {
+        skillsList.forEach(s -> this.skills.add(s));
+    }
+
     public static Member createMember(String name, String loginId, String pw, Position position, String email, String gitAddress, String intro, List<Skills> skills) {
         Member member = new Member();
         member.setName(name);
@@ -55,7 +61,7 @@ public class Member {
         member.setGitAddress(gitAddress);
         member.setPw(pw);
         member.setPosition(position);
-        member.setSkills(skills);
+        member.addSkills(skills);
         member.setIntro(intro);
 
         return member;

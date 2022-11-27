@@ -113,7 +113,7 @@
                                     <div class="check-box">
                                         <c:forEach items="${skillList}" var="skill">
                                             <label for="${skill}">${skill}</label>
-                                            <input type="checkbox" id="${skill}" name="${skill}" value="${skill}">
+                                            <input type="checkbox" id="${skill}" name="skills" value="${skill}">
                                         </c:forEach>
                                     </div>
                                 </div>
