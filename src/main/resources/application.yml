@@ -7,13 +7,19 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
         default_batch_fetch_size: 100
-  messages:
-    basename: application, errors
+    defer-datasource-initialization: true #sql data-source 초기화 설정
+
+  ##sql 설정
+  sql:
+    init:
+      data-locations: classpath:sql/delete.sql, classpath:sql/insert.sql
+      #      schema-locations: classpath:sql/ddl.sql
+      mode: always
 
   #jsp 설정
   mvc:
