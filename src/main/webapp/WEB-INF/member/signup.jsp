@@ -82,10 +82,10 @@
                 </div>
                 <div class="row">
                     <label for="memberPosition" class="sub-title">포지션*</label>
-                    <select name="memberPosition" id="memberPosition" required >
+                    <select name="position" id="memberPosition" required >
                         <option value="">--- Position ---</option>
                         <c:forEach items="${positionList}" var="position">
-                            <option name="position" value="${position}">${position}</option>
+                            <option value="${position}">${position}</option>
                         </c:forEach>
                     </select>
                 </div>

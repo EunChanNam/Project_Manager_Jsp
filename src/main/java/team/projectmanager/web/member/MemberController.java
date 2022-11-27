@@ -1,6 +1,7 @@
 package team.projectmanager.web.member;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,7 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/members")
+@Slf4j
 public class MemberController {
 
     private final MemberService memberService;
@@ -63,6 +65,7 @@ public class MemberController {
             return "member/signup";
         }
 
+        log.info("Position = {}", memberForm.getPosition());
         Member member = Member.createMember(memberForm.getName(), memberForm.getLoginId(), memberForm.getPw(), memberForm.getPosition(),
                 memberForm.getEmail(), memberForm.getGitAddress(), memberForm.getIntro(), memberForm.getSkills());
 
