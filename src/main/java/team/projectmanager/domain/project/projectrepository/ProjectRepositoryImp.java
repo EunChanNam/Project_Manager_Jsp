@@ -74,7 +74,7 @@ public class ProjectRepositoryImp implements ProjectRepository{
                     "join fetch p.memberProjects";
             return em.createQuery(query, Project.class)
                     .getResultList();
-        } else if (search.getName().isEmpty()) {
+        } else if (search.getName() == null || search.getName().isEmpty()) {
             String query = "select distinct p from Project p " +
                     "join fetch p.memberProjects " +
                     "where p.status = :status";

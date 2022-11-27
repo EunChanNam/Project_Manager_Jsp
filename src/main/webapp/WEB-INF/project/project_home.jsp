@@ -45,17 +45,17 @@
         <div class="inner">
 
           <div class="radio-box">
-            <input <%--th:value="COLLECT" th:name="status"--%> type="radio" id="recruitment" name="state" value="COLLECT">
+            <input <%--th:value="COLLECT" th:name="status"--%> type="radio" id="recruitment" name="status" value="COLLECT">
             <label for="recruitment" class="bton underline">모집중</label>
           </div>
 
           <div class="radio-box">
-            <input <%--th:value="ING" th:name="status"--%> type="radio" id="progress" name="state" value="ING">
+            <input <%--th:value="ING" th:name="status"--%> type="radio" id="progress" name="status" value="ING">
             <label for="progress" class="bton underline">진행중</label>
           </div>
 
           <div class="radio-box">
-            <input <%--th:value="FIN" th:name="status"--%> type="radio" id="complete" name="state" value="FIN">
+            <input <%--th:value="FIN" th:name="status"--%> type="radio" id="complete" name="status" value="FIN">
             <label for="complete" class="bton underline">완료</label>
           </div>
 

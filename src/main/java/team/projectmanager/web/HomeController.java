@@ -1,6 +1,7 @@
 package team.projectmanager.web;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class HomeController {
 
     private final MemberService memberService;
@@ -39,6 +41,8 @@ public class HomeController {
         MemberProject collectMP = mpr.findMPByStatus(memberId, ProjectStatus.COLLECT);
 
         List<Project> collectProjects = ps.findByStatus(ProjectStatus.COLLECT);
+
+        log.info("size = {}", collectProjects.size());
 
         model.addAttribute("member", member);
         model.addAttribute("ingMP", ingMP);
