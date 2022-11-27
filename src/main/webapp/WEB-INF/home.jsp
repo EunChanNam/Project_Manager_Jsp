@@ -139,13 +139,19 @@
     <div class="inner">
 
         <div class="text-title">
-            <a href="/projects" <%--th:href="@{/projects}--%>"><span onClick="location.href='project/project_info.jsp'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">모집중인 프로젝트</span></a>
+            <a href="/projects" <%--th:href="@{/projects}--%>><span onClick="location.href='project/project_info.jsp'" class="title title-cursor underline line" title="프로젝트 페이지로 이동">모집중인 프로젝트</span></a>
         </div>
         <div class="swiper">
+            <div class="swiper-prev">
+                <div class="material-icons">arrow_back</div>
+            </div>
+            <div class="swiper-next">
+                <div class="material-icons">arrow_forward</div>
+            </div>
             <div class="card-list swiper-wrapper">
 
+                <c:forEach items="${projects}" var="project">
                 <div class="card swiper-slide" <%--th:each="project : ${projects}"--%>>
-                    <c:forEach items="${projects}" var="project">
                     <img class="card-img-top" src="images/inq_logo.png" alt="Card image cap" />
                     <div class="card-body">
                         <a href="/projects/${project.id}" <%--th:href="@{/projects/{projectId}(projectId = ${project.id})}"--%>><div class="card-text card-title" <%--th:text="${project.name}"--%>>${project.name}</div></a>
@@ -167,14 +173,8 @@
                             </div>
                         </div>
                     </div>
-                    </c:forEach>
                 </div>
-                <div class="swiper-prev">
-                    <div class="material-icons">arrow_back</div>
-                </div>
-                <div class="swiper-next">
-                    <div class="material-icons">arrow_forward</div>
-                </div>
+                </c:forEach>
             </div>
         </div>
     </div>
