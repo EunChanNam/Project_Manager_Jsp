@@ -97,6 +97,7 @@
   width: 750px;
   margin: 40px;
   position: relative;
+  font-size: 25px;
 }
 .member-info .text-body .row .member-project .project-title {
   font-size: var(--sub-title-font);

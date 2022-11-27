@@ -1,4 +1,5 @@
 <%@ page import="team.projectmanager.domain.member.Member" %>
+<%@ page import="team.projectmanager.domain.memberproject.MemberProject" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -38,6 +39,11 @@
             $("#footers").load("common/footer.html");  // 원하는 파일 경로를 삽입
         });
     </script>
+    <%
+        MemberProject ingMP = (MemberProject) request.getAttribute("ingMP");
+        MemberProject finMP = (MemberProject) request.getAttribute("finMP");
+        MemberProject collectMP = (MemberProject) request.getAttribute("collectMP");
+    %>
 </head>
 <body>
 <!-- Header -->
@@ -79,22 +85,40 @@
                     <a href="javascript:void(0)">
                         <div class="project-content">
                             <span class="project-progress">진행중</span>
-<%--                            <span class="project-name" th:if="${ingMP != null}" th:text="${ingMP.project.name}">진행중인 프로젝트가 없습니다.</span>--%>
-<%--                            <span class="project-name" th:if="${ingMP == null}">진행중인 프로젝트가 없습니다.</span>--%>
+                            <%
+                                if (ingMP == null) {
+                            %>
+                            <span class="project-name">진행중인 프로젝트가 없습니다.</span>
+                            <%
+                                } else
+                            %>
+                            <span class="project-name">${ingMP.project.name}</span>
                         </div>
                     </a>
                     <a href="javascript:void(0)">
                         <div class="project-content">
                             <span class="project-progress">완료</span>
-<%--                            <span class="project-name" th:if="${finMP != null}" th:text="${finMP?.project?.name}">완료한 프로젝트가 없습니다.</span>--%>
-<%--                            <span class="project-name" th:if="${finMP == null}">완료한 프로젝트가 없습니다.</span>--%>
+                            <%
+                                if (finMP == null) {
+                            %>
+                            <span class="project-name">완료한 프로젝트가 없습니다.</span>
+                            <%
+                            } else
+                            %>
+                            <span class="project-name">${finMP.project.name}</span>
                         </div>
                     </a>
                     <a href="javascript:void(0)">
                         <div class="project-content">
                             <span class="project-progress">모집중</span>
-<%--                            <span class="project-name" th:if="${collectMP != null}" th:text="${collectMP?.project?.name}">모집중인 프로젝트가 없습니다.</span>--%>
-<%--                            <span class="project-name" th:if="${collectMP == null}">모집중인 프로젝트가 없습니다.</span>--%>
+                            <%
+                                if (collectMP == null) {
+                            %>
+                            <span class="project-name">모집중인 프로젝트가 없습니다.</span>
+                            <%
+                            } else
+                            %>
+                            <span class="project-name">${collectMP.project.name}</span>
                         </div>
                     </a>
                 </div>
