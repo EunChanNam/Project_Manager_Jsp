@@ -81,17 +81,24 @@
           </div>
         
           <!-- <button class="bton btn--reverse row box">참여하기</button> -->
-          <form <%--th:action="@{/memberproject/join}"--%> method="post">
-            <input type="hidden" <%--th:value="${projectId}" th:name="projectId"--%>>
+          <form action="/memberproject/join" <%--th:action="@{/memberproject/join}"--%> method="post">
+            <input type="hidden" value="${projectId}" name="projectId" <%--th:value="${projectId}" th:name="projectId"--%>>
+            <%
+              if (!(boolean)request.getAttribute("isJoin")){
+            %>
             <input <%--th:if="${!isJoin}"--%> type="submit" value="참여하기" class="bton btn--reverse row box">
+            <%}%>
           </form>
             <!-- Button trigger modal -->
+          <%
+            if (!(boolean)request.getAttribute("isAdmin")){
+          %>
           <button <%--th:if="${isAdmin}"--%> type="button" class="btn btn-primary bton btn--blue-reverse row box" data-toggle="modal" data-target="#exampleModalCenter">
             프로젝트 상태변경
           </button>
-
+          <%}%>
           <!-- Modal -->
-          <form <%--th:action="@{/projects/edit/status}"--%> method="post">
+          <form action="/projects/edit/status" <%--th:action="@{/projects/edit/status}"--%> method="post">
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -104,9 +111,11 @@
                   <div class="modal-body">
   
                     <div class="radio-box" <%--th:each="status : ${statusList}"--%>>
-                      <label <%--th:for="${#ids.next('projectStatus')}" th:text="${status}"--%> for="recruitment">모집중</label>
-                      <input <%--th:value="${status}" th:name="projectStatus" th:id="projectStatus"--%> type="radio" id="recruitment" name="state" value="recruitment">
-                      <input type="hidden" <%--th:value="${projectId}" th:name="projectId"--%>>
+                      <c:forEach items="${statusList}" var="status">
+                      <label <%--th:for="${#ids.next('projectStatus')}" th:text="${status}"--%> for="${status}">모집중</label>
+                      <input <%--th:value="${status}" th:name="projectStatus" th:id="projectStatus"--%> type="radio" id="${status}" name="status" value="${status}">
+                      <input type="hidden" value="${projectId}" name="projectId" <%--th:value="${projectId}" th:name="projectId"--%>>
+                      </c:forEach>
                     </div>
   
                   </div>
