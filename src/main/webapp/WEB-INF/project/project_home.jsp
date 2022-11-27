@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -74,27 +75,27 @@
     <div class="inner">
 
       <div class="card-list" <%--th:each="project : ${projects}"--%>>
-
+        <c:forEach items="${projects}" var="project">
         <div class="card">
           <img class="card-img-top" src="images/inq_logo.png" alt="Card image cap" />
           <div class="card-body">
-            <a <%--th:href="@{/projects/{projectId}(projectId = ${project.id})}"--%>><div class="card-text card-title" <%--th:text="${project.name}"--%>>[인큐] 프로젝트 관리 매니저</div></a>
+            <a href="/projects/${project.id}" <%--th:href="@{/projects/{projectId}(projectId = ${project.id})}"--%>><div class="card-text card-title" <%--th:text="${project.name}"--%>>${project.name}</div></a>
             <div class="card-text">
               <div class="card-info">
                 <div class="info-left">
                   <div class="info-date">
                     모집기간
-                    <span class="recruit-date" <%--th:text="'~' + ${project.period}"--%>>22.05.10 - 22.05.20</span>
+                    <span class="recruit-date" <%--th:text="'~' + ${project.period}"--%>>${project.startDate} ~ ${project.endDate}</span>
                   </div>
                 </div>
                 <div class="info-right">
                   <div class="info-member">
                     <span class="symbol material-icons">person</span>
                     <span class="member-personnel" <%--th:text="${project.memberProjects.size()}"--%>>
-                      3
+                      ${project.memberProjects.size()}
                     </span>
                   </div>
-                  <div <%--th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).ING}"--%> class="info-progress execution">진행중</div>
+                  <div <%--th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).ING}"--%> class="info-progress execution">${project.status}</div>
 <%--                  <div &lt;%&ndash;th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).COLLECT}"&ndash;%&gt; class="info-progress recruit">모집중</div>--%>
 <%--                  <div &lt;%&ndash;th:if="${project.status == T(team.projectmanager.domain.project.ProjectStatus).FIN}"&ndash;%&gt; class="info-progress complete">완료</div>--%>
                 </div>
@@ -102,7 +103,7 @@
             </div>
           </div>
         </div>
-
+        </c:forEach>
       </div>
     </div>
   </section>
