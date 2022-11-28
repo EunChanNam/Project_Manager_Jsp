@@ -48,7 +48,7 @@
   /* opacity: 0.9; -> 배경 + 자식요소까지 투명해짐*/
   margin-right: 100px;
   margin-bottom: 300px;
-  background-color: cyan;
+  background-color: var(--inq-blue);
   /*background-color: rgba(255,255,255,50.9);*/
   /* rgba를 활용함으로 배경만 투명하게 함 */
 }
@@ -57,7 +57,7 @@
   margin: 40px;
 }
 .member-info .text-body .row .member-detail.detail-second {
-  margin-top: 0;
+  margin-top: 18px;
 }
 .member-info .text-body .row .member-detail .detail-title {
   font-size: var(--sub-title-font);
@@ -97,7 +97,6 @@
   width: 750px;
   margin: 40px;
   position: relative;
-  font-size: 25px;
 }
 .member-info .text-body .row .member-project .project-title {
   font-size: var(--sub-title-font);
@@ -107,11 +106,13 @@
   margin: 12px 0;
 }
 .member-info .text-body .row .member-project .project-content .project-progress {
+  font-size: 30px;
+  font-weight: 600;
   display: inline-block; 
   border-radius: 8px;
   background-color: var(--inq-yellow);
   /* 각 진행상황마다 색을 다르게 하고 싶음 */
-  width: 108px;
+  width: 135px;
   text-align: center;
   padding: 12px;
   margin: 3px 12px 0 2px;

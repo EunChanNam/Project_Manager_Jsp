@@ -59,8 +59,8 @@
             <div class="row">
                 <div class="member-detail detail-second">
                     <div class="detail-title">깃허브</div>
-                    <button class="bton btn--blue-reverse " type="button">
-                        <a class="detail-content a-font" href="${member.gitAddress}">My GitHub</a>
+                    <button class="bton btn--yellow-reverse " type="button" style="background-color: var(--inq-yellow);">
+                        <a style="color: black" href="${member.gitAddress}" class="detail-content a-font">My GitHub</a>
                     </button>
                 </div>
                 <div class="member-detail">
