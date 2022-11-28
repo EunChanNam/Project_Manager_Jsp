@@ -2,6 +2,7 @@ package team.projectmanager.web.project;
 
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 import team.projectmanager.domain.position.Position;
 
 import javax.validation.constraints.NotEmpty;
@@ -26,4 +27,6 @@ public class ProjectForm {
     private List<Position> positions;
 
     private String introduction;
+
+    MultipartFile file;
 }
