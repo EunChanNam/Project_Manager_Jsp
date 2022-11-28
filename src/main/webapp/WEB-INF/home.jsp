@@ -65,7 +65,7 @@
                 </div>
                 <div class="member-detail">
                     <div class="detail-title">한 줄 소개</div>
-                    <span class="detail-content">${member.intro}</span>
+                    <span class="detail-content" style="color: var(--inq-white);">${member.intro}</span>
                 </div>
             </div>
             <div class="row">
@@ -85,11 +85,11 @@
                             <%
                                 if (ingMP == null) {
                             %>
-                            <span class="project-name">진행중인 프로젝트가 없습니다.</span>
+                            <span class="project-name" style="color: var(--inq-white);">진행중인 프로젝트가 없습니다.</span>
                             <%
                                 } else
                             %>
-                            <span class="project-name">${ingMP.project.name}</span>
+                            <span class="project-name" style="color: var(--inq-white);">${ingMP.project.name}</span>
                         </div>
                     </a>
                     <a href="javascript:void(0)">
@@ -98,11 +98,11 @@
                             <%
                                 if (finMP == null) {
                             %>
-                            <span class="project-name">완료한 프로젝트가 없습니다.</span>
+                            <span class="project-name" style="color: var(--inq-white);">완료한 프로젝트가 없습니다.</span>
                             <%
                             } else
                             %>
-                            <span class="project-name">${finMP.project.name}</span>
+                            <span class="project-name" style="color: var(--inq-white);">${finMP.project.name}</span>
                         </div>
                     </a>
                     <a href="javascript:void(0)">
@@ -111,11 +111,11 @@
                             <%
                                 if (collectMP == null) {
                             %>
-                            <span class="project-name">모집중인 프로젝트가 없습니다.</span>
+                            <span class="project-name" style="color: var(--inq-white);">모집중인 프로젝트가 없습니다.</span>
                             <%
                             } else
                             %>
-                            <span class="project-name">${collectMP.project.name}</span>
+                            <span class="project-name" style="color: var(--inq-white);">${collectMP.project.name}</span>
                         </div>
                     </a>
                 </div>
