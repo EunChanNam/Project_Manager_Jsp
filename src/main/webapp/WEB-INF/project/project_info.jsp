@@ -136,6 +136,14 @@
         </div>
         <!-- Body Right -->
         <div class="body-right box">
+          <div>
+            <c:if test="${project.uploadFile == null}">
+              <img style="width: 500px; height: 500px; margin-bottom: 20px" class="card-img-top" src="/images/inq_logo.png" alt="Card image cap" />
+            </c:if>
+            <c:if test="${project.uploadFile != null}">
+              <img style="width: 500px; height: 500px; margin-bottom: 20px" class="card-img-top" src="/images/${project.uploadFile.storeFilename}" alt="Card image cap" />
+            </c:if>
+          </div>
           <div class="sub-title">
             <span class="icon material-symbols-outlined">description</span>
             <div class="title">프로젝트 설명</div>
@@ -155,7 +163,7 @@
             </div>
             <div class="font-style">
               <span class="state-text">프로젝트 기간</span>
-              <span> class="project-term">${project.startDate} ~ ${project.endDate}</span>
+              <span class="project-term">${project.startDate} ~ ${project.endDate}</span>
             </div>
             <hr style="margin: 60px 0;">
             <div class="project-content">

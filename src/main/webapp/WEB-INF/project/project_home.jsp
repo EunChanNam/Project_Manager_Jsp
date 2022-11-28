@@ -77,7 +77,12 @@
       <div class="card-list">
         <c:forEach items="${projects}" var="project">
         <div class="card">
-          <img class="card-img-top" src="images/inq_logo.png" alt="Card image cap" />
+          <c:if test="${project.uploadFile == null}">
+            <img class="card-img-top" src="images/inq_logo.png" alt="Card image cap" />
+          </c:if>
+          <c:if test="${project.uploadFile != null}">
+            <img class="card-img-top" src="images/${project.uploadFile.storeFilename}" alt="Card image cap" />
+          </c:if>
           <div class="card-body">
             <a href="/projects/${project.id}"><div class="card-text card-title">${project.name}</div></a>
             <div class="card-text">
