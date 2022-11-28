@@ -52,7 +52,7 @@ public class ProjectController {
         }
 
         Long projectId = ps.newProject(memberId, projectForm.getName(), projectForm.getPeriod(), projectForm.getStartDate(),
-                projectForm.getEndDate(), projectForm.getIntroduction(), projectForm.getPositions());
+                projectForm.getEndDate(), projectForm.getIntroduction(), projectForm.getPositions(), projectForm.getFile());
 
         return "redirect:/projects/" + projectId;
     }

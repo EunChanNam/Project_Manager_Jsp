@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.tomcat.jni.Local;
 import team.projectmanager.domain.comment.Comment;
+import team.projectmanager.domain.file.UploadFile;
 import team.projectmanager.domain.memberproject.MemberProject;
 import team.projectmanager.domain.position.Position;
 
@@ -36,6 +37,9 @@ public class Project {
 
     private LocalDate endDate;
 
+    @Embedded
+    private UploadFile uploadFile;
+
     @ElementCollection
     @CollectionTable(name = "project_positions",
                     joinColumns = @JoinColumn(name = "project_id"))
@@ -58,7 +62,7 @@ public class Project {
         getComments().add(comment);
     }
 
-    public static Project createProject(Long memberId, String name, LocalDate period, LocalDate startDate, LocalDate endDate, String introduction, List<Position> positions) {
+    public static Project createProject(Long memberId, String name, LocalDate period, LocalDate startDate, LocalDate endDate, String introduction, List<Position> positions, UploadFile uploadFile) {
         Project project = new Project();
         project.setAdminId(memberId);
         project.setName(name);
@@ -68,6 +72,7 @@ public class Project {
         project.setIntroduction(introduction);
         project.setPositions(positions);
         project.setStatus(ProjectStatus.COLLECT);
+        project.setUploadFile(uploadFile);
 
         return project;
     }

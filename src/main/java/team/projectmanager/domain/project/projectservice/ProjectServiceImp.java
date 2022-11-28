@@ -3,6 +3,9 @@ package team.projectmanager.domain.project.projectservice;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
+import team.projectmanager.domain.file.FileStore;
+import team.projectmanager.domain.file.UploadFile;
 import team.projectmanager.domain.member.Member;
 import team.projectmanager.domain.member.memberservice.MemberService;
 import team.projectmanager.domain.memberproject.MemberProject;
@@ -24,11 +27,13 @@ public class ProjectServiceImp implements ProjectService {
     private final ProjectRepository pr;
     private final MemberService ms;
     private final MemberProjectRepository mpr;
+    private final FileStore fileStore;
 
     @Transactional
-    public Long newProject(Long memberId, String name, LocalDate period, LocalDate startDate, LocalDate endDate, String introduction, List<Position> positions) {
+    public Long newProject(Long memberId, String name, LocalDate period, LocalDate startDate, LocalDate endDate, String introduction, List<Position> positions, MultipartFile file) {
 
-        Project project = Project.createProject(memberId, name, period, startDate, endDate, introduction, positions);
+        UploadFile uploadFile = fileStore.storeFile(file);
+        Project project = Project.createProject(memberId, name, period, startDate, endDate, introduction, positions, uploadFile);
         pr.save(project);
 
         Member member = ms.findById(memberId);

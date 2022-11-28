@@ -47,7 +47,7 @@ public class skillTest {
         member.setIntro("hello");
         mr.save(member);
         //when
-        ps.newProject(member.getId(), "projectA", LocalDate.now(), LocalDate.now(), LocalDate.now(), "hello", null);
+        ps.newProject(member.getId(), "projectA", LocalDate.now(), LocalDate.now(), LocalDate.now(), "hello", null, null);
         //then
         assertThat(1).isEqualTo(mpr.findAll().size());
         assertThat(1).isEqualTo(pr.findAll().size());

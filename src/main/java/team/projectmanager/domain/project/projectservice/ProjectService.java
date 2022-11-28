@@ -1,5 +1,6 @@
 package team.projectmanager.domain.project.projectservice;
 
+import org.springframework.web.multipart.MultipartFile;
 import team.projectmanager.domain.position.Position;
 import team.projectmanager.domain.project.Project;
 import team.projectmanager.domain.project.ProjectStatus;
@@ -9,7 +10,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface ProjectService {
-    Long newProject(Long memberId, String name, LocalDate period, LocalDate startDate, LocalDate endDate, String introduction, List<Position> positions);
+    Long newProject(Long memberId, String name, LocalDate period, LocalDate startDate, LocalDate endDate, String introduction, List<Position> positions, MultipartFile file);
 
     Project findProjectById(Long projectId);
 
