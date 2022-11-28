@@ -100,6 +100,10 @@
           </div>
         </div>
         <div class="row">
+          <label for="fileInput" class="sub-title">표지 사진*</label>
+          <input type="file" id="fileInput" name="file">
+        </div>
+        <div class="row">
           <label for="projectInfo" class="sub-title">프로젝트 소개</label>
           <textarea id="projectInfo" name="introduction" rows="9" cols="33" required></textarea>
         </div>
