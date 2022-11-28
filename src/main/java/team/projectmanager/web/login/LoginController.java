@@ -24,10 +24,11 @@ public class LoginController {
 
     @GetMapping("/login")
     public String loginForm(@ModelAttribute("loginForm") LoginForm loginForm, Model model,
-                            @RequestParam String join) {
-        if (join.equals("success")) {
+                            @RequestParam(required = false) String join) {
+        if (join == null) model.addAttribute("isAfterJoin", false);
+        else if (join.equals("success")) {
             model.addAttribute("isAfterJoin", true);
-        } else model.addAttribute("isAfterJoin", false);
+        }
 
         model.addAttribute("hasError", false);
         return "login/loginForm";
@@ -42,6 +43,7 @@ public class LoginController {
 
         if (loginMember == null) {
             model.addAttribute("hasError", true);
+            model.addAttribute("isAfterJoin", false);
             return "login/loginForm";
         }
 

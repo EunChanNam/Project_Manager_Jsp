@@ -43,7 +43,7 @@
     <div class="text-title">
       <span class="title">프로젝트 생성</span>
     </div>
-    <form action="/projects/new" method="post" class="form-example">
+    <form action="/projects/new" method="post" enctype="multipart/form-data" class="form-example">
       <div class="text-body">
         <div class="row">
           <label for="projectName" class="sub-title">프로젝트 이름*</label>

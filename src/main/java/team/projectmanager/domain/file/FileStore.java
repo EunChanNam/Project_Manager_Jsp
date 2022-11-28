@@ -15,7 +15,7 @@ public class FileStore {
     private String fileDir;
 
     public UploadFile storeFile(MultipartFile multipartFile) {
-        if (!multipartFile.isEmpty()) {
+        if (multipartFile != null) {
             String originalFilename = multipartFile.getOriginalFilename();
             String storeFilename = createStoreFilename(originalFilename);
             String fullPath = getFullPath(storeFilename);
