@@ -84,17 +84,17 @@ public class ProjectRepositoryImp implements ProjectRepository{
         } else if (search.getStatus() == null) {
             String query = "select distinct p from Project p " +
                     "join fetch p.memberProjects " +
-                    "where p.name = :name";
+                    "where p.name like :name";
             return em.createQuery(query, Project.class)
-                    .setParameter("name", search.getName())
+                    .setParameter("name", "%" + search.getName() + "%")
                     .getResultList();
         } else {
             String query = "select distinct p from Project p " +
                     "join fetch p.memberProjects " +
-                    "where p.name = :name " +
+                    "where p.name like :name " +
                     "and p.status = :status";
             return em.createQuery(query, Project.class)
-                    .setParameter("name", search.getName())
+                    .setParameter("name", "%" + search.getName() + "%")
                     .setParameter("status", search.getStatus())
                     .getResultList();
         }
