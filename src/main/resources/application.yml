@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/project_manager
     username: root
-    password: 1234!
+    password: 1234@
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -27,6 +27,13 @@ spring:
       prefix: /WEB-INF/
       suffix: .jsp
 
+  #이미지 설정
+  web:
+    resources:
+      static-locations:
+        - file:src/main/resources/static/
+        - classpath:/static/
+
 logging:
   level:
     org.hibernate.SQL: debug
@@ -37,4 +44,4 @@ server:
 
 
 
-file.dir: C:\Users\남은찬\Desktop\Projects\Project_Manager_Jsp\src\main\resources\static\images\
+file.dir: C:\Users\NamEunChan\Desktop\projects\Project_Manager_Jsp\src\main\resources\static\images\
