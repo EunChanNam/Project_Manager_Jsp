@@ -87,7 +87,7 @@
                   <div class="check-box">
                     <c:forEach items="${positionList}" var="position">
                     <label for="${position}">${position}</label>
-                    <input type="checkbox" id="${position}" name="${position}">
+                    <input type="checkbox" id="${position}" name="positions">
                     </c:forEach>
                   </div>
 

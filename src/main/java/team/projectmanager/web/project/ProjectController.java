@@ -47,9 +47,6 @@ public class ProjectController {
     public String newProject(@Validated @ModelAttribute ProjectForm projectForm,
                              BindingResult bindingResult,
                              @SessionAttribute(name = LoginConst.LOGIN_MEMBER, required = false) Long memberId) {
-        if (bindingResult.hasErrors()) {
-            return "/project/project_posting";
-        }
 
         Long projectId = ps.newProject(memberId, projectForm.getName(), projectForm.getPeriod(), projectForm.getStartDate(),
                 projectForm.getEndDate(), projectForm.getIntroduction(), projectForm.getPositions(), projectForm.getFile());
