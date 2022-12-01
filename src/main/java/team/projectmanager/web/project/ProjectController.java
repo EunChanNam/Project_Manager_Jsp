@@ -1,6 +1,7 @@
 package team.projectmanager.web.project;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -22,6 +23,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class ProjectController {
 
     private final ProjectService ps;
@@ -48,6 +50,7 @@ public class ProjectController {
                              BindingResult bindingResult,
                              @SessionAttribute(name = LoginConst.LOGIN_MEMBER, required = false) Long memberId) {
 
+        log.info("positions = {}", projectForm.getPositions());
         Long projectId = ps.newProject(memberId, projectForm.getName(), projectForm.getPeriod(), projectForm.getStartDate(),
                 projectForm.getEndDate(), projectForm.getIntroduction(), projectForm.getPositions(), projectForm.getFile());
 
