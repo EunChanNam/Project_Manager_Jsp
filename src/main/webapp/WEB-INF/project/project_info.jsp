@@ -90,14 +90,14 @@
           <form action="/memberproject/join" method="post">
             <input type="hidden" value="${projectId}" name="projectId">
             <%
-              if (!isJoin){
+              if (!isJoin && (project.getStatus() == ProjectStatus.COLLECT)){
             %>
             <input type="submit" value="참여하기" class="bton btn--reverse row box">
             <%}%>
           </form>
             <!-- Button trigger modal -->
           <%
-            if (isAdmin && project.getStatus() == ProjectStatus.COLLECT){
+            if (isAdmin){
           %>
           <button type="button" class="btn btn-primary bton btn--blue-reverse row box" data-toggle="modal" data-target="#exampleModalCenter">
             프로젝트 상태변경
